@@ -20,16 +20,6 @@ You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ)
 * ![gif1 gif1](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif1.gif)
 * ![gif2 gif2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/gif2.gif)
 
-## Mode Switch
-* ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
-* ![simple_mode simple_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/simple_mode.png)
-
-## New UI
-![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
-
-## UI
-![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI.png)
-
 ## Original image
 ![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
 
