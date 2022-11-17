@@ -13,6 +13,13 @@
 可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
+# UI
+![UI](sample/UI.png)
+# Before
+![Before](sample/before.png)
+# After
+![After](sample/after.png)
+
 ## 現已支持影片格式
 可以點擊下方圖片[觀看範例影片](https://youtu.be/W8HxlqgLQnQ)。
 
