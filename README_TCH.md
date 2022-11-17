@@ -6,6 +6,10 @@
 我的 [像素化濾鏡工具](https://github.com/JingShing-Tools/Pixel-Art-transform-in-python) 的網路版。
 
 ## Usage用法
+如果想要使用，請啟動 ```script/pixel_page.py```.
+
+然後開啟這個網址： ```http://127.0.0.1:5000/```
+
 可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
