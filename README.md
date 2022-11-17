@@ -8,9 +8,9 @@ web version of my [pixel art filter tool](https://github.com/JingShing-Tools/Pix
 This tool can render image, gif and video into pixel art style.
 
 ## Usage
-If you want to use please active ```script/pixel_page.py```.
+If you want to use please active: ```script/pixel_page.py```
 
-And then open ```http://127.0.0.1:5000/```
+And then open: ```http://127.0.0.1:5000/```
 
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
