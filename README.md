@@ -1,5 +1,5 @@
 # Pixel-Art-Filter-Web
-English | [繁體中文](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/README_TCH.md)
+English | [繁體中文](README_TCH.md)
 
 A web version pixel art filter can render image, gif and video.
 
