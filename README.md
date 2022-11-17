@@ -15,6 +15,13 @@ And then open: ```http://127.0.0.1:5000/```
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
+# UI
+![UI](sample/UI.png)
+# Before
+![Before](sample/before.png)
+# After
+![After](sample/after.png)
+
 ## Video supported now
 You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ).
 
