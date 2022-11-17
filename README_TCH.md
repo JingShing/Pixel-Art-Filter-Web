@@ -1,5 +1,5 @@
 # Pixel-Art-Filter-Web
-English | [繁體中文](README_TCH.md)
+[English](README.md) | 繁體中文
 
 一個網路版的像素化工具。可以渲染圖片、GIF和影片。
 
