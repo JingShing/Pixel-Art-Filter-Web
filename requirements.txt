@@ -1,4 +1,5 @@
 altgraph==0.17.2
+auto-py-to-exe==2.24.1
 bottle==0.12.23
 bottle-websocket==0.2.9
 cffi==1.15.1
@@ -19,6 +20,9 @@ opencv-python==4.5.3.56
 pefile==2022.5.30
 Pillow==9.2.0
 pycparser==2.21
+pygame==2.1.2
+pyinstaller==5.3
+pyinstaller-hooks-contrib==2022.10
 pyparsing==3.0.9
 pywin32-ctypes==0.2.0
 tinyaes==1.0.3
