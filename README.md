@@ -20,7 +20,7 @@ If you want to use gunicorn on Linux:
 > 
 > Way 1
 > 
-> Please input this command: ```sudo gunicorn --workers=4 -b 0.0.0.0:5000 pixel_page:app --daemon```
+> Please input this command: ```gunicorn --workers=4 -b 0.0.0.0:5000 pixel_page:app --daemon```
 > 
 > --worker=amount // suggested 1 core 2-4 worker
 > 
