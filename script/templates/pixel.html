@@ -49,7 +49,7 @@
                 </p>
                 <h4>粗略規格</h4>
                 <ul>
-                    <li>支持的圖像為 jpeg 和 png，最大 2MB</li>
+                    <li>支持的圖像為 jpeg、png、gif、mp4，最大 2MB</li>
                     <li>圖片分辨率沒有限制，只要在容量範圍內即可，但如果長邊超過1024px，則縮小為1024px</li>
                     <li><s>雖然可以處理RGBA和灰度圖，但是輸出的時候會轉成RGB<br>
                         所以透明度被忽略了</s></li>
@@ -151,6 +151,32 @@
                 </div>
                 <div id="original" class="tab-pane">
                     <img class="img-responsive" src="{{ org_img }}">
+                </div>
+            </div>
+        </div>
+        {% elif vid_result %}
+        <div class="col-md-9 add-margin-top">
+            <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                    <a href="#result" class="nav-link" data-toggle="tab">結果</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#original" class="nav-link" data-toggle="tab">原圖</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="result" class="tab-pane active">
+                    <video src="{{ vid_result }}" controls="controls"></video>
+                    {% if colors %}
+                    <div class="add-margin-top">
+                        {% for color in colors %}
+                        <span class="label" style="background-color: {{ color }};">{{ color }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div id="original" class="tab-pane">
+                    <video src="{{ org_img }}" controls="controls"></video>
                 </div>
             </div>
         </div>
