@@ -1,3 +1,5 @@
+import os
+import multiprocessing
 # bind listen port and ip
 bind = '0.0.0.0:5000' 
 # Multiprocessing, recommend max cpu core*2+1
