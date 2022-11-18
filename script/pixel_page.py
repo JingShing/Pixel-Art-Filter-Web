@@ -31,6 +31,7 @@ def post():
         alpha = bool(int(request.form['alpha']))
     except:
         alpha = False
+
     try:
         to_tw = bool(int(request.form['to_tw']))
     except:
@@ -61,4 +62,4 @@ def not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(port=12345)
+    app.run(host='0.0.0.0',port=5000)
