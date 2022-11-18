@@ -10,7 +10,9 @@ from pixel_converter import *
 pixel_html_path = 'pixel.html'
 static_path = 'static/'
 app = Flask(__name__)
-config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * 2, 'DEBUG': False}
+max_size_num = 2
+max_size_length = 2048
+config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False}
 app.config.update(config)
 
 @app.route('/', methods=['GET'])
@@ -41,26 +43,27 @@ def post():
     os.path.splitext(img.filename)[-1]
     # result_path = os.path.join(static_path+'results', img_name + '.png')
     result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img.filename)[-1])
+    file_format = os.path.splitext(img.filename)[-1].replace('.', '')
     img.save(img_path)
-    with Image.open(img_path) as img_pl:
-        if max(img_pl.size) > 1024:
-            img_pl.thumbnail((1024, 1024), Image.ANTIALIAS)
-            img_pl.save(img_path)
+    if not file_format in ['mp4', 'avi', 'flv']:
+        with Image.open(img_path) as img_pl:
+            if max(img_pl.size) > max_size_length:
+                img_pl.thumbnail((max_size_length, max_size_length), Image.ANTIALIAS)
+                img_pl.save(img_path)
     # commands
     command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw)
     img_res, colors = convert(img_path, command_dict)
-    file_format = os.path.splitext(img.filename)[-1].replace('.', '')
     if file_format in ['gif', 'GIF']:
         return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
     elif file_format in ['mp4', 'avi', 'flv']:
-        pass
+        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors)
     else:
         cv2.imwrite(result_path, img_res)
         return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
 
 @app.errorhandler(413)
 def error_file_size(e):
-    error = '文件太大。 最大上傳大小為 2MB。'
+    error = '文件太大。 最大上傳大小為 ' + max_size_num + 'MB。'
     return render_template(pixel_html_path, error=error), 413
 
 @app.errorhandler(404)
