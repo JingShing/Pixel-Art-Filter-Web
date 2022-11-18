@@ -11,9 +11,9 @@ worker_class = "gevent"
 # maxinum client number
 max_requests = 2000
 # working in background.
-daemon = false
+daemon = True
 # When code edit restart workers.
-reload = True
+reload = False
 # keep-alive wait second default is 2 secs. Usually set on 1-5 secs.           
 # It is how long we need to listen and break connection. Unit is second.
 keepalive = 5
