@@ -14,7 +14,8 @@ If you want to use please active: ```script/pixel_page.py```
 
 And then open: ```http://127.0.0.1:5000/```
 
-> Install ```pip install gunicorn```
+If you want to use gunicorn on Linux:
+> Install gunicorn using this command: ```pip install gunicorn```
 > If you want to use gunicorn on your device.
 > 
 > Way 1
