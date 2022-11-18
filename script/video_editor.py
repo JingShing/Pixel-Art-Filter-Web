@@ -31,7 +31,8 @@ def video_edit(path, set_dict):
     #     fourcc = cv2.VideoWriter_fourcc('F','L','V','1')
 
     if fourcc:
-        out = cv2.VideoWriter(file_name + '_edited' + '.' + file_format, fourcc, frame_fps, (frame_width,  frame_height))
+        # video output
+        out = cv2.VideoWriter('static/results/' + file_name.split('\\')[-1] + '.' + file_format, fourcc, frame_fps, (frame_width,  frame_height))
         # out = cv2.VideoWriter(file_name + '_edited' + '.' + file_format, fourcc, frame_fps, (frame_width,  frame_height), 0)
 
         while(cap.isOpened()):
@@ -46,11 +47,11 @@ def video_edit(path, set_dict):
             frame = cv2.resize(frame, (frame_width, frame_height), interpolation=cv2.INTER_AREA)
             out.write(frame)
             
-            cv2.imshow('frame_rendering', frame)
-            if cv2.waitKey(1) == ord('q'):
-                # press q to stop render
-                print('Stop rendering video')
-                break
+            # cv2.imshow('frame_rendering', frame)
+            # if cv2.waitKey(1) == ord('q'):
+            #     # press q to stop render
+            #     print('Stop rendering video')
+            #     break
 
             if frame_index == 0:
                 cover = frame
@@ -58,7 +59,6 @@ def video_edit(path, set_dict):
             process.update(1)
             # print("Editing Frame {} / {}".format(frame_index, frame_length))
 
-            
         cap.release()
         out.release()
         cv2.destroyAllWindows()

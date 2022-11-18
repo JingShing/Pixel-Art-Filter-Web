@@ -47,8 +47,9 @@ def gif_edit(path, set_dict):
         # add to output
 
     # save as gif
-    # output[0].save(file_locat + file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=200, loop=0, disposal=0)
-    # output[0].save(file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
+    print('static/results' + file_name.split('\\')[-1] + ".gif")
+    output[0].save('static/results/' + file_name.split('\\')[-1] + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
+    # gif output
     return img_list[0]
 
 def show_gif(img_list):

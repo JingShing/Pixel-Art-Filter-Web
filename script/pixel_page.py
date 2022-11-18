@@ -1,5 +1,5 @@
 # coding:utf-8
-from flask import Flask, render_template, request, redirect, url_for, abort, logging
+from flask import Flask, render_template, request
 import os
 import cv2
 from PIL import Image
@@ -38,7 +38,9 @@ def post():
         to_tw = False
     img_name = hashlib.md5(str(dt.datetime.now()).encode('utf-8')).hexdigest()
     img_path = os.path.join(static_path+'img', img_name + os.path.splitext(img.filename)[-1])
-    result_path = os.path.join(static_path+'results', img_name + '.png')
+    os.path.splitext(img.filename)[-1]
+    # result_path = os.path.join(static_path+'results', img_name + '.png')
+    result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img.filename)[-1])
     img.save(img_path)
     with Image.open(img_path) as img_pl:
         if max(img_pl.size) > 1024:
@@ -47,8 +49,14 @@ def post():
     # commands
     command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw)
     img_res, colors = convert(img_path, command_dict)
-    cv2.imwrite(result_path, img_res)
-    return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
+    file_format = os.path.splitext(img.filename)[-1].replace('.', '')
+    if file_format in ['gif', 'GIF']:
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
+    elif file_format in ['mp4', 'avi', 'flv']:
+        pass
+    else:
+        cv2.imwrite(result_path, img_res)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
 
 @app.errorhandler(413)
 def error_file_size(e):
