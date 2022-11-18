@@ -14,6 +14,13 @@ If you want to use please active: ```script/pixel_page.py```
 
 And then open: ```http://127.0.0.1:5000/```
 
+> Install ```pip install gunicorn```
+> If you want to use gunicorn on your device.
+> Way 1
+> Please input this command: ```sudo gunicorn --workers=4 -b 0.0.0.0:5000 pixel_page:app --daemon```
+> --worker=amount // suggested 1 core 2-4 worker
+> --daemon // can make gunicorn working in background
+
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
