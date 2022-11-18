@@ -11,7 +11,7 @@ worker_class = "gevent"
 # maxinum client number
 max_requests = 2000
 # working in background.
-daemon = True
+daemon = false
 # When code edit restart workers.
 reload = True
 # keep-alive wait second default is 2 secs. Usually set on 1-5 secs.           
