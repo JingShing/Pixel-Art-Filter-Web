@@ -20,6 +20,8 @@ And then open: ```http://127.0.0.1:5000/```
 > Please input this command: ```sudo gunicorn --workers=4 -b 0.0.0.0:5000 pixel_page:app --daemon```
 > --worker=amount // suggested 1 core 2-4 worker
 > --daemon // can make gunicorn working in background
+> Way 2
+> use this command: ```gunicorn --config=gunicorn.config.py pixel_page:app```
 
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
