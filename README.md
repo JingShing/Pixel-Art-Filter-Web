@@ -193,4 +193,10 @@ You can click pic to watch vid.
 ![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.png)
 ## Effect 2bit
 ![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
+ 
+ ## Ver1.8
+ * Create Web version
+ * Now can edit it on web
+ ## Ver1.8.1
+ * Added Gif web edit feature
 </details>
