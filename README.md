@@ -29,6 +29,7 @@ If you want to use gunicorn on Linux:
 > Way 2
 > 
 > use this command: ```gunicorn --config=gunicorn.config.py pixel_page:app```
+> ```gunicorn --c gunicorn.config.py pixel_page:app```
 
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
