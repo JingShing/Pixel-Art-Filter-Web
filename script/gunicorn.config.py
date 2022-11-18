@@ -1,5 +1,3 @@
-import os
-import multiprocessing
 # bind listen port and ip
 bind = '0.0.0.0:5000' 
 # Multiprocessing, recommend max cpu core*2+1
@@ -19,11 +17,11 @@ reload = True
 # It is how long we need to listen and break connection. Unit is second.
 keepalive = 5
 # set pid file name
-pidfile = './gunicore.pid'
+# pidfile = './gunicore.pid'
 # debug error warning error critical
-loglevel = 'info' 
+# loglevel = 'info' 
 # Accessing log path and name
-accesslog = str('gunicorn_acess.log')
-errorlog  = str('gunicorn_error.log')
+# accesslog = str('gunicorn_acess.log')
+# errorlog  = str('gunicorn_error.log')
 # log format
-access_log_format = '%({X-Real-IP}i)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
+# access_log_format = '%({X-Real-IP}i)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
