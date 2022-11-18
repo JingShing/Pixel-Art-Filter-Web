@@ -8,6 +8,8 @@ web version of my [pixel art filter tool](https://github.com/JingShing-Tools/Pix
 This tool can render image, gif and video into pixel art style.
 
 ## Usage
+If you want to install modules enter this command: ```pip install -r requirements.txt```.
+
 If you want to use please active: ```script/pixel_page.py```
 
 And then open: ```http://127.0.0.1:5000/```
