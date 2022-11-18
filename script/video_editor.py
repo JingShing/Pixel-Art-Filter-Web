@@ -39,7 +39,7 @@ def video_edit(path, set_dict):
             if not ret:
                 break
 
-            frame = transform(frame, set_dict)
+            frame = transform(frame, set_dict)[0]
             # Turn into right color space
             frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
             # compress frame

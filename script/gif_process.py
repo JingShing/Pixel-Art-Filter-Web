@@ -24,21 +24,19 @@ def gif_edit(path, set_dict):
         # opencv_img = cv2.cvtColor(opencv_img, cv2.COLOR_RGBA2BGRA)
 
         # edit area
-        frame = transform(frame, set_dict)
+        frame = transform(frame, set_dict)[0]
         
-        cv2.imshow('frame_rendering', frame)
-        if cv2.waitKey(1) == ord('q'):
-            # press q to stop render
-            print('Stop rendering video')
-            break
+        # cv2.imshow('frame_rendering', frame)
+        # if cv2.waitKey(1) == ord('q'):
+        #     # press q to stop render
+        #     print('Stop rendering video')
+        #     break
 
         img_list.append(frame)
-    cv2.destroyAllWindows()
 
     # output list
     output = []
-    for i in img_list:
-        img = i
+    for img in img_list:
         img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGBA)
         # since OpenCV is BGRA, need to change to RGBA
         img = Image.fromarray(img)
@@ -50,7 +48,7 @@ def gif_edit(path, set_dict):
 
     # save as gif
     # output[0].save(file_locat + file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=200, loop=0, disposal=0)
-    output[0].save(file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
+    # output[0].save(file_name + 'edited' + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
     return img_list[0]
 
 def show_gif(img_list):
