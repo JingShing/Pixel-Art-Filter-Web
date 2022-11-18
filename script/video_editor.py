@@ -24,7 +24,8 @@ def video_edit(path, set_dict):
     if file_format == 'avi':
         fourcc = cv2.VideoWriter_fourcc(*'XVID') # windows
     elif file_format == 'mp4':
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v') # macos
+        # fourcc = cv2.VideoWriter_fourcc(*'mp4v') # macos
+        fourcc = cv2.VideoWriter_fourcc(*'h264') # H264 is for windows
     elif file_format == 'flv':
         fourcc = cv2.VideoWriter_fourcc(*'flv1')
     #     # fourcc = cv2.VideoWriter_fourcc(*'FLV1')
