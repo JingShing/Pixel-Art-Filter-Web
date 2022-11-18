@@ -7,7 +7,7 @@ threads = 2
 backlog = 2048
 # sync, gevent,meinheld  
 # working mode, default is sync, this set as gevent
-worker_class = "gevent"  
+worker_class = "sync"  
 # maxinum client number
 max_requests = 2000
 # working in background.
