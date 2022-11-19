@@ -292,4 +292,7 @@ You can click pic to watch vid.
  * Added Gif web edit feature
  ## ver1.8.2
  * Added H264 to video edit to make web browser can play video successfully
+ ## ver1.8.3
+ * Now can remember last file you select.
+ * Now can alert wrong file format.
 </details>
