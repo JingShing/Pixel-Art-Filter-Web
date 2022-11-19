@@ -30,6 +30,79 @@ If you want to use gunicorn on Linux:
 > 
 > use this command: ```gunicorn --config=gunicorn.config.py pixel_page:app``` or ```gunicorn -c gunicorn.config.py pixel_page:app```
 
+<details>
+<summary>If you can't do video edit on Linux(Fixed H264 encode problem)</summary>
+Because it need to use H264 to encode video to display video on web browser. And Linux didn't have H264. Because Opencv can't release H264 encode tool. You need to compile a opencv by yourself.
+
+> I will use ubuntu for example below. To teach how to compile a ver that can use H254.
+* If you want to compile it by yourself：
+
+  * Install compile tool and module you need
+ 
+    ```
+    sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
+        libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
+        libxvidcore-dev libx264-dev libjpeg-dev libpng-dev libtiff-dev \
+        gfortran openexr libatlas-base-dev python3-dev python3-numpy \
+        libtbb2 libtbb-dev libopenexr-dev \
+        libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
+    ```
+    
+  * git clone opencv and opencv contrib
+  
+    ```php
+    mkdir ~/opencv_build && cd ~/opencv_build
+    git clone https://github.com/opencv/opencv.git
+    git clone https://github.com/opencv/opencv_contrib.git
+    ```
+    
+  * CMake set OpenCV construct
+ 
+    ```jsx
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D INSTALL_C_EXAMPLES=ON \
+        -D INSTALL_PYTHON_EXAMPLES=ON \
+        -D OPENCV_GENERATE_PKGCONFIG=ON \
+        -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
+        -D BUILD_EXAMPLES=ON ..
+    ```
+  
+  * If you success it will show the message below
+  
+    ```bash
+    -- Configuring done
+    -- Generating done
+    -- Build files have been written to: /home/vagrant/opencv_build/opencv/build
+    ```
+  
+  * Compile(-j for speeding compiling. number after j is your cpu core)
+  
+    ```go
+    make -j4
+    ```
+  
+  * Installing the module you compiled
+  
+    ```go
+    sudo make install
+    ```
+  
+  * Check version
+  
+    ```undefined
+    pkg-config --modversion opencv4
+    ```
+  
+  * Or using python Import to check version
+  
+    ```swift
+    python3 -c "import cv2; print(cv2.__version__)"
+    ```
+
+</details>
+
+
 You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
@@ -207,5 +280,5 @@ You can click pic to watch vid.
  ## Ver1.8.1
  * Added Gif web edit feature
  ## ver1.8.2
- * Added H264 to video edit to make explorer can play video successfully
+ * Added H264 to video edit to make web browser can play video successfully
 </details>
