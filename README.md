@@ -199,4 +199,6 @@ You can click pic to watch vid.
  * Now can edit it on web
  ## Ver1.8.1
  * Added Gif web edit feature
+ ## ver1.8.2
+ * Added H264 to video edit to make explorer can play video successfully
 </details>
