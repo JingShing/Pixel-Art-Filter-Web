@@ -24,17 +24,18 @@ def post():
     img = request.files['image']
     last_image_name = request.values['last_image']
     format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
-    if '.' in last_image_name:
+    print(last_image_name)
+    if img:
+        last_image_name = None
+        img_file_name = img.filename
+    elif '.' in last_image_name:
         img_file_name = last_image_name
         img_path = last_image_name
         result_path = last_image_name.replace('img', 'results')
-    if not img and not last_image_name:
+    elif not img and not last_image_name:
         last_image_name = None
         error='沒有選擇圖片'
         return render_template(pixel_html_path, error=error)
-    else:
-        last_image_name = None
-        img_file_name = img.filename
     if img_file_name.split('.')[-1].lower() not in format_support:
         error = "不支持這個格式。"
         return render_template(pixel_html_path, error=error)
@@ -68,12 +69,12 @@ def post():
     command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw)
     img_res, colors = convert(img_path, command_dict)
     if file_format in ['gif', 'GIF']:
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image = img_path)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=img_path)
     elif file_format in ['mp4', 'avi', 'flv']:
-        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image = img_path)
+        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=img_path)
     else:
         cv2.imwrite(result_path, img_res)
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image = img_path)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=img_path)
 
 @app.errorhandler(413)
 def error_file_size(e):
