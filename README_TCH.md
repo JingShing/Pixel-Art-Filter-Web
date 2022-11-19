@@ -15,17 +15,17 @@
 如果想在 Linux 上使用 gunicorn:
 > 使用這個指令安裝 gunicorn : ```pip install gunicorn```
 > 以下有兩種方式以 gunicon 啟動這個腳本
-> 
+>
 > 方法 1
-> 
+>
 > 使用這個指令: ```gunicorn --workers=4 -b 0.0.0.0:5000 pixel_page:app --daemon```
-> 
+>
 > --worker=amount // 建議 1 核 2-4 worker
-> 
+>
 > --daemon // 可以讓 gunicorn 在後台工作
-> 
+>
 > 方法 2
-> 
+>
 > 使用這個指令: ```gunicorn --config=gunicorn.config.py pixel_page:app``` 或 ```gunicorn -c gunicorn.config.py pixel_page:app```
 
 <details>
@@ -34,6 +34,70 @@
 
 > 以下以 ubuntu 為例
 * 所以要自行編譯使用：
+
+  * 安裝構建和相關所需套件
+
+    ```php
+    sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
+        libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
+        libxvidcore-dev libx264-dev libjpeg-dev libpng-dev libtiff-dev \
+        gfortran openexr libatlas-base-dev python3-dev python3-numpy \
+        libtbb2 libtbb-dev libopenexr-dev \
+        libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
+    ```
+    
+  * git clone opencv 和 opencv contrib
+  
+    ```php
+    mkdir ~/opencv_build && cd ~/opencv_build
+    git clone https://github.com/opencv/opencv.git
+    git clone https://github.com/opencv/opencv_contrib.git
+    ```
+    
+  * CMake 配置 OpenCV構建
+  
+    ```jsx
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D INSTALL_C_EXAMPLES=ON \
+        -D INSTALL_PYTHON_EXAMPLES=ON \
+        -D OPENCV_GENERATE_PKGCONFIG=ON \
+        -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
+        -D BUILD_EXAMPLES=ON ..
+    ```
+  
+  * 如果成功會有如下輸出
+  
+    ```bash
+    -- Configuring done
+    -- Generating done
+    -- Build files have been written to: /home/vagrant/opencv_build/opencv/build
+    ```
+  
+  * 編譯(-j 是用以加速，後面的數字可以放自己的核心數)
+  
+    ```go
+    make -j4
+    ```
+  
+  * 安裝
+  
+    ```go
+    sudo make install
+    ```
+  
+  * 查看版本
+  
+    ```undefined
+    pkg-config --modversion opencv4
+    ```
+  
+  * 或使用 python 導入後查看版本
+  
+    ```swift
+    python3 -c "import cv2; print(cv2.__version__)"
+    ```
+
 </details>
 
 可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
