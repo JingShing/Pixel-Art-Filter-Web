@@ -22,6 +22,7 @@ def index():
 @app.route('/', methods=['POST'])
 def post():
     img = request.files['image']
+    format_support = ['mp4', 'avi', 'flv','gif', 'GIF','png','jpg','JPG','PNG','pjp']
     if not img:
         error='沒有選擇圖片'
         return render_template(pixel_html_path, error=error)
@@ -63,7 +64,7 @@ def post():
 
 @app.errorhandler(413)
 def error_file_size(e):
-    error = '文件太大。 最大上傳大小為 ' + max_size_num + 'MB。'
+    error = '文件太大。 最大上傳大小為 ' + str(max_size_num) + 'MB。' + '  如果想要編輯大於' + str(max_size_num) + 'MB的檔案，請參考看看本地版：https://github.com/JingShing-Tools/Pixel-Art-transform-in-python'# + "<a href='https://github.com/JingShing-Tools/Pixel-Art-transform-in-python' target='_blank'>如果要沒有限制的本地版本，可以點擊這裡<\\a>"
     return render_template(pixel_html_path, error=error), 413
 
 @app.errorhandler(404)
