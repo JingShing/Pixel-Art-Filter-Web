@@ -43,9 +43,9 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 
 ## Video edit on web
 ### Before
-![Before_vid](sample/before.png)
+![Before_vid](sample/video_or.png)
 ### After
-![After_vid](sample/after.png)
+![After_vid](sample/video_edited.png)
 
 ## Video supported now
 You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ).
