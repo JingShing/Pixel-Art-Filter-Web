@@ -28,6 +28,14 @@
 > 
 > 使用這個指令: ```gunicorn --config=gunicorn.config.py pixel_page:app``` 或 ```gunicorn -c gunicorn.config.py pixel_page:app```
 
+<details>
+<summary>如果在 Linux 上無法使用影片編輯(修復 H264 問題)</summary>
+因為影片編輯後的結果必須在瀏覽器中能夠呈現，所以必須採用 H264 編碼。而 Linux 本身並無自帶 H264。且 Linux 的 Opencv 因為開源協議也無法發行帶有 H264 編碼工具的版本。
+
+> 以下以 ubuntu 為例
+* 所以要自行編譯使用：
+</details>
+
 可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
