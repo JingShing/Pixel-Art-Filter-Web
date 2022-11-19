@@ -35,10 +35,17 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 
 # UI
 ![UI](sample/UI.png)
-# Before
+## Image edit on web
+### Before
 ![Before](sample/before.png)
-# After
+### After
 ![After](sample/after.png)
+
+## Video edit on web
+### Before
+![Before_vid](sample/before.png)
+### After
+![After_vid](sample/after.png)
 
 ## Video supported now
 You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ).
