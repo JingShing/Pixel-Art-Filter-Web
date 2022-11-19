@@ -83,6 +83,7 @@
                 <div class="form-group">
                     <label>圖像、GIF或影片(最大2MB) <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">點擊取得沒有大小限制的本地版</a></label>
                     <input type="file" name="image" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi'>
+                    <input type="hidden" name="last_image" value="{{last_image}}">
                 </div>
                 <div class="form-group">
                     <div>顏色數量</div>
@@ -206,6 +207,12 @@
         {% endif %}
     </div>
 </div>
+<script>
+    function new_image(){
+        document.getElementById('image_flag').value = '{last_image}';
+    }
+    document.getElementById('image_flag').addEventListener(new_image, false);
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 {% if error %}

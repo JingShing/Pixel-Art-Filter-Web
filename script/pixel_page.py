@@ -22,10 +22,19 @@ def index():
 @app.route('/', methods=['POST'])
 def post():
     img = request.files['image']
-    format_support = ['mp4', 'avi', 'flv','gif', 'GIF','png','jpg','JPG','PNG','pjp']
-    if not img:
+    last_image_name = request.values['last_image']
+    format_support = ['mp4', 'avi', 'flv','gif','png','jpg','pjp']
+    if '.' in last_image_name:
+        img_file_name = last_image_name
+        img_path = last_image_name
+        result_path = last_image_name.replace('img', 'results')
+    if not img and not last_image_name:
+        last_image_name = None
         error='沒有選擇圖片'
         return render_template(pixel_html_path, error=error)
+    else:
+        last_image_name = None
+        img_file_name = img.filename
     k = int(request.form['k'])
     scale = int(request.form['scale'])
     blur = int(request.form['blur'])
@@ -34,18 +43,19 @@ def post():
         alpha = bool(int(request.form['alpha']))
     except:
         alpha = False
-
     try:
         to_tw = bool(int(request.form['to_tw']))
     except:
         to_tw = False
     img_name = hashlib.md5(str(dt.datetime.now()).encode('utf-8')).hexdigest()
-    img_path = os.path.join(static_path+'img', img_name + os.path.splitext(img.filename)[-1])
-    os.path.splitext(img.filename)[-1]
-    # result_path = os.path.join(static_path+'results', img_name + '.png')
-    result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img.filename)[-1])
-    file_format = os.path.splitext(img.filename)[-1].replace('.', '')
-    img.save(img_path)
+
+    if img:
+        # if upload new img
+        img_path = os.path.join(static_path+'img', img_name + os.path.splitext(img_file_name)[-1])
+        result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img_file_name)[-1])
+        img.save(img_path)
+
+    file_format = os.path.splitext(img_file_name)[-1].replace('.', '')
     if not file_format in ['mp4', 'avi', 'flv']:
         with Image.open(img_path) as img_pl:
             if max(img_pl.size) > max_size_length:
@@ -55,12 +65,12 @@ def post():
     command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw)
     img_res, colors = convert(img_path, command_dict)
     if file_format in ['gif', 'GIF']:
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image = img_path)
     elif file_format in ['mp4', 'avi', 'flv']:
-        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors)
+        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image = img_path)
     else:
         cv2.imwrite(result_path, img_res)
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image = img_path)
 
 @app.errorhandler(413)
 def error_file_size(e):
