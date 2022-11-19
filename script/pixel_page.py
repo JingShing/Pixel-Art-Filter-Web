@@ -23,7 +23,7 @@ def index():
 def post():
     img = request.files['image']
     last_image_name = request.values['last_image']
-    format_support = ['mp4', 'avi', 'flv','gif','png','jpg','pjp']
+    format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
     if '.' in last_image_name:
         img_file_name = last_image_name
         img_path = last_image_name
@@ -35,6 +35,9 @@ def post():
     else:
         last_image_name = None
         img_file_name = img.filename
+    if img_file_name.split('.')[-1].lower() not in format_support:
+        error = "不支持這個格式。"
+        return render_template(pixel_html_path, error=error)
     k = int(request.form['k'])
     scale = int(request.form['scale'])
     blur = int(request.form['blur'])
