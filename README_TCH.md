@@ -6,7 +6,18 @@
 我的 [像素化濾鏡工具](https://github.com/JingShing-Tools/Pixel-Art-transform-in-python) 的網路版。
 
 ## Usage用法
-如果需要安裝套件，可以使用這個指令 : ```pip install -r requirements.txt```.
+~~如果需要安裝套件，可以使用這個指令 : ```pip install -r requirements.txt```.~~
+> 需要的模塊:
+>
+> Flask
+>
+> numpy
+>
+> opencv-python
+>
+> Pillow
+>
+> tqdm
 
 如果想要使用，請啟動： ```script/pixel_page.py```
 
