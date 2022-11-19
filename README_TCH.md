@@ -12,6 +12,22 @@
 
 然後開啟這個網址： ```http://127.0.0.1:5000/```
 
+如果想在 Linux 上使用 gunicorn:
+> 使用這個指令安裝 gunicorn : ```pip install gunicorn```
+> 以下有兩種方式以 gunicon 啟動這個腳本
+> 
+> 方法 1
+> 
+> 使用這個指令: ```gunicorn --workers=4 -b 0.0.0.0:5000 pixel_page:app --daemon```
+> 
+> --worker=amount // 建議 1 核 2-4 worker
+> 
+> --daemon // 可以讓 gunicorn 在後台工作
+> 
+> 方法 2
+> 
+> 使用這個指令: ```gunicorn --config=gunicorn.config.py pixel_page:app``` 或 ```gunicorn -c gunicorn.config.py pixel_page:app```
+
 可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
