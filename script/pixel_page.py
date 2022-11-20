@@ -12,6 +12,7 @@ pixel_html_pro_path = '.html'
 html_lang = 'tch'
 def get_pixel_html_name():
     return pixel_html_pre_path + '_' + html_lang + pixel_html_pro_path
+
 pixel_html_path = get_pixel_html_name()
 static_path = 'static/'
 app = Flask(__name__)
@@ -36,14 +37,23 @@ def traditional_chinese():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template(pixel_html_path)
+    return render_template(pixel_html_path, language=html_lang)
 
 @app.route('/', methods=['POST'])
 def post():
     img = request.files['image']
     last_image_name = request.values['last_image']
     format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
-    print(last_image_name)
+    language = request.values['language']
+    print(language)
+    global pixel_html_path, html_lang
+    if language:
+        html_lang = language
+    else:
+        html_lang = 'en'
+    pixel_html_path = get_pixel_html_name()
+    print(pixel_html_path)
+
     if img:
         last_image_name = None
         img_file_name = img.filename
@@ -53,10 +63,17 @@ def post():
         result_path = last_image_name.replace('img', 'results')
     elif not img and not last_image_name:
         last_image_name = None
-        error='沒有選擇圖片'
+        if html_lang == 'tch':
+            error='沒有選擇圖片'
+        elif html_lang == 'en':
+            error='Did not select image'
+        print(error)
         return render_template(pixel_html_path, error=error)
     if img_file_name.split('.')[-1].lower() not in format_support:
-        error = "不支持這個格式。"
+        if html_lang == 'tch':
+            error = "不支持這個格式。"
+        elif html_lang == 'en':
+            error = 'Do not support this file format.'
         return render_template(pixel_html_path, error=error)
     k = int(request.form['k'])
     scale = int(request.form['scale'])
@@ -101,7 +118,10 @@ def post():
 
 @app.errorhandler(413)
 def error_file_size(e):
-    error = '文件太大。 最大上傳大小為 ' + str(max_size_num) + 'MB。' + '  如果想要編輯大於' + str(max_size_num) + 'MB的檔案，請參考看看本地版：https://github.com/JingShing-Tools/Pixel-Art-transform-in-python'# + "<a href='https://github.com/JingShing-Tools/Pixel-Art-transform-in-python' target='_blank'>如果要沒有限制的本地版本，可以點擊這裡<\\a>"
+    if html_lang == 'tch':
+        error = '文件太大。 最大上傳大小為 ' + str(max_size_num) + 'MB。' + '  如果想要編輯大於' + str(max_size_num) + 'MB的檔案，請參考看看本地版：https://github.com/JingShing-Tools/Pixel-Art-transform-in-python'# + "<a href='https://github.com/JingShing-Tools/Pixel-Art-transform-in-python' target='_blank'>如果要沒有限制的本地版本，可以點擊這裡<\\a>"
+    elif html_lang == 'en':
+        error = 'File size is over restriction. Maxinum upload size is ' + str(max_size_num) + 'MB.' + '  If want to edit size more than' + str(max_size_num) + 'MB file. Please see local version: https://github.com/JingShing-Tools/Pixel-Art-transform-in-python'
     return render_template(pixel_html_path, error=error), 413
 
 @app.errorhandler(404)

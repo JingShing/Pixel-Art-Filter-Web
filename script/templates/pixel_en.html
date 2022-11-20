@@ -85,6 +85,7 @@
                     <label>Image, GIF or mp4(maxinum:2MB) <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">Click here to get the local version to get rid of file size restriction</a></label>
                     <input type="file" name="image" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi'>
                     <input type="hidden" name="last_image" value="{{last_image}}">
+                    <input type="hidden" name="language" value="{{language}}">
                 </div>
                 <div class="form-group">
                     <div>Color number(bits)</div>
@@ -241,5 +242,12 @@
     });
 </script>
 {% endif %}
+<script>
+    function set_language(){
+        document.getElementsByName("language")[0].value = 'en';
+    }
+    set_language()
+    document.body.addEventListener('click',set_language, false);
+</script>
 </body>
 </html>
