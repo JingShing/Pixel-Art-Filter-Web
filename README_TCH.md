@@ -307,5 +307,6 @@ You can click pic to watch vid.
 - [ ] 記住設置
 - [ ] 多語言支持
 - [ ] 自定義模式
+- [ ] 參數鼠標移上去提示意思
  
 </details>
