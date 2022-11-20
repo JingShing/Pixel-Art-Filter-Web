@@ -309,5 +309,6 @@ You can click pic to watch vid.
 - [ ] QR code feature
 - [ ] Remember set
 - [ ] Multi language support
-
+- [ ] Custom Mode
+ 
 </details>
