@@ -301,6 +301,9 @@ You can click pic to watch vid.
  ## ver1.8.4
  * Add contrast edit.
  * Add saturation edit.
+ ## ver1.8.5
+ * Add English and Traditional Chinese can select from right upper corner.
+ * Page will remember what last language you choose.
 </details>
 
 <details>
