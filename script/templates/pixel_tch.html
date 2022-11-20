@@ -243,11 +243,19 @@
 </script>
 {% endif %}
 <script>
+    function load_language(){
+        if(location.pathname.length==1){
+            if(localStorage.getItem('language')!='traditional_chinese'){
+                window.location.assign("{{url_for('english')}}");
+            }
+        }
+    }
     function set_language(){
         document.getElementsByName("language")[0].value = 'tch';
+        localStorage.setItem('language', 'traditional_chinese');
     }
-    set_language()
     document.body.addEventListener('click',set_language, false);
+    window.addEventListener('load', load_language, false);
 </script>
 </body>
 </html>
