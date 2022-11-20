@@ -7,13 +7,32 @@ import hashlib
 import datetime as dt
 from settings import *
 from pixel_converter import *
-pixel_html_path = 'pixel.html'
+pixel_html_pre_path = 'pixel'
+pixel_html_pro_path = '.html'
+html_lang = 'tch'
+def get_pixel_html_name():
+    return pixel_html_pre_path + '_' + html_lang + pixel_html_pro_path
+pixel_html_path = get_pixel_html_name()
 static_path = 'static/'
 app = Flask(__name__)
 max_size_num = 2
 max_size_length = 2048
 config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False}
 app.config.update(config)
+
+@app.route("/english",methods=['POST','GET'])
+def english():
+    global pixel_html_path, html_lang
+    html_lang = 'en'
+    pixel_html_path = get_pixel_html_name()
+    return render_template(pixel_html_path)
+
+@app.route("/traditional_chinese")
+def traditional_chinese():
+    global pixel_html_path, html_lang
+    html_lang = 'tch'
+    pixel_html_path = get_pixel_html_name()
+    return render_template(pixel_html_path)
 
 @app.route('/', methods=['GET'])
 def index():
