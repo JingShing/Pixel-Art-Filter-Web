@@ -89,55 +89,103 @@
                 </div>
                 <div class="form-group">
                     <div>顏色數量(幾bit的風格)</div>
-                    <label class="radio-inline"><input name="k" type="radio" value="2">2</label>
+                    <select class="radio-inline" name="k">
+                        <option value="2">2</option>
+                        <option value="4" selected>4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="k" type="radio" value="2">2</label>
                     <label class="radio-inline"><input name="k" type="radio" value="4" checked>4</label>
                     <label class="radio-inline"><input name="k" type="radio" value="8">8</label>
-                    <label class="radio-inline"><input name="k" type="radio" value="16">16</label>
-                </div>
-                <div class="form-group">
+                    <label class="radio-inline"><input name="k" type="radio" value="16">16</label> -->
                     <div>像素大小(每個像素顆粒的大小)</div>
-                    <label class="radio-inline"><input name="scale" type="radio" value="1">1</label>
+                    <select class="radio-inline" name="scale">
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="scale" type="radio" value="1">1</label>
                     <label class="radio-inline"><input name="scale" type="radio" value="2" checked>2</label>
                     <label class="radio-inline"><input name="scale" type="radio" value="3">3</label>
                     <label class="radio-inline"><input name="scale" type="radio" value="4">4</label>
-                    <label class="radio-inline"><input name="scale" type="radio" value="5">5</label>
+                    <label class="radio-inline"><input name="scale" type="radio" value="5">5</label> -->
                 </div>
                 <div class="form-group">
                     <div>平滑化圖片(將局部模糊)</div>
-                    <label class="radio-inline"><input name="blur" type="radio" value="0" checked>無</label>
+                    <select class="radio-inline" name="blur">
+                        <option value="0" selected>無</option>
+                        <option value="50">弱</option>
+                        <option value="100">中</option>
+                        <option value="200">強</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="blur" type="radio" value="0" checked>無</label>
                     <label class="radio-inline"><input name="blur" type="radio" value="50">弱</label>
                     <label class="radio-inline"><input name="blur" type="radio" value="100">中</label>
-                    <label class="radio-inline"><input name="blur" type="radio" value="200">強</label>
+                    <label class="radio-inline"><input name="blur" type="radio" value="200">強</label> -->
                 </div>
                 <div class="form-group">
                     <div>輪廓線增強(增強線條效果)</div>
-                    <label class="radio-inline"><input name="erode" type="radio" value="0" checked>無</label>
+                    <select class="radio-inline" name="erode">
+                        <option value="0" selected>無</option>
+                        <option value="1">弱</option>
+                        <option value="2">強</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="erode" type="radio" value="0" checked>無</label>
                     <label class="radio-inline"><input name="erode" type="radio" value="1">弱</label>
-                    <label class="radio-inline"><input name="erode" type="radio" value="2">強</label>
+                    <label class="radio-inline"><input name="erode" type="radio" value="2">強</label> -->
                 </div>
                 <div class="form-group">
                     <div>飽和度更改</div>
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label> -->
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label> -->
+                    <select class="radio-inline" name="saturation">
+                        <option value="-250">-250</option>
+                        <option value="-200">-200</option>
+                        <option value="-150">-150</option>
+                        <option value="-100">-100</option>
+                        <option value="-50">-50</option>
+                        <option value="0" selected>無</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="-100">-100</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="-50">-50</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="0" checked>無</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="50">50</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="100">100</label>
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label> -->
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
+                    <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
                 </div>
                 <div class="form-group">
                     <div>對比度增減</div>
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label> -->
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label> -->
+                    <select class="radio-inline" name="contrast">
+                        <option value="-250">-250</option>
+                        <option value="-200">-200</option>
+                        <option value="-150">-150</option>
+                        <option value="-100">-100</option>
+                        <option value="-50">-50</option>
+                        <option value="0" selected>無</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="-100">-100</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="-50">-50</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="0" checked>無</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="50">50</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="100">100</label>
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label> -->
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
+                    <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
                 </div>
                 <div class="form-group">
                     <label><input name="alpha" type="checkbox" value="1" checked>導出為透明PNG</label>

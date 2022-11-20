@@ -89,55 +89,105 @@
                 </div>
                 <div class="form-group">
                     <div>Color number(bits)</div>
-                    <label class="radio-inline"><input name="k" type="radio" value="2">2</label>
+                    <select class="radio-inline" name="k">
+                        <option value="2">2</option>
+                        <option value="4" selected>4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="k" type="radio" value="2">2</label>
                     <label class="radio-inline"><input name="k" type="radio" value="4" checked>4</label>
                     <label class="radio-inline"><input name="k" type="radio" value="8">8</label>
-                    <label class="radio-inline"><input name="k" type="radio" value="16">16</label>
+                    <label class="radio-inline"><input name="k" type="radio" value="16">16</label> -->
                 </div>
                 <div class="form-group">
                     <div>Pixel Size</div>
-                    <label class="radio-inline"><input name="scale" type="radio" value="1">1</label>
+                    <select class="radio-inline" name="scale">
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="scale" type="radio" value="1">1</label>
                     <label class="radio-inline"><input name="scale" type="radio" value="2" checked>2</label>
                     <label class="radio-inline"><input name="scale" type="radio" value="3">3</label>
                     <label class="radio-inline"><input name="scale" type="radio" value="4">4</label>
-                    <label class="radio-inline"><input name="scale" type="radio" value="5">5</label>
+                    <label class="radio-inline"><input name="scale" type="radio" value="5">5</label> -->
                 </div>
                 <div class="form-group">
                     <div>Smooth</div>
-                    <label class="radio-inline"><input name="blur" type="radio" value="0" checked>None</label>
+                    <select class="radio-inline" name="blur">
+                        <option value="0" selected>None</option>
+                        <option value="50">Weak</option>
+                        <option value="100">Medium</option>
+                        <option value="200">Strong</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="blur" type="radio" value="0" checked>None</label>
                     <label class="radio-inline"><input name="blur" type="radio" value="50">Weak</label>
                     <label class="radio-inline"><input name="blur" type="radio" value="100">Medium</label>
-                    <label class="radio-inline"><input name="blur" type="radio" value="200">Strong</label>
+                    <label class="radio-inline"><input name="blur" type="radio" value="200">Strong</label> -->
                 </div>
                 <div class="form-group">
                     <div>Outlines Enhence</div>
-                    <label class="radio-inline"><input name="erode" type="radio" value="0" checked>None</label>
+                    <select class="radio-inline" name="erode">
+                        <option value="0" selected>None</option>
+                        <option value="1">Weak</option>
+                        <option value="2">Strong</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="erode" type="radio" value="0" checked>None</label>
                     <label class="radio-inline"><input name="erode" type="radio" value="1">Weak</label>
-                    <label class="radio-inline"><input name="erode" type="radio" value="2">Strong</label>
+                    <label class="radio-inline"><input name="erode" type="radio" value="2">Strong</label> -->
                 </div>
                 <div class="form-group">
                     <div>Saturation Edit</div>
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label> -->
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label> -->
+                    <select class="radio-inline" name="saturation">
+                        <option value="-250">-250</option>
+                        <option value="-200">-200</option>
+                        <option value="-150">-150</option>
+                        <option value="-100">-100</option>
+                        <option value="-50">-50</option>
+                        <option value="0" selected>None</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="-100">-100</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="-50">-50</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="0" checked>0</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="50">50</label>
                     <label class="radio-inline"><input name="saturation" type="radio" value="100">100</label>
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label> -->
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
+                    <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
                 </div>
                 <div class="form-group">
                     <div>Contrast Edit</div>
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label> -->
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label> -->
+                    <select class="radio-inline" name="contrast">
+                        <option value="-250">-250</option>
+                        <option value="-200">-200</option>
+                        <option value="-150">-150</option>
+                        <option value="-100">-100</option>
+                        <option value="-50">-50</option>
+                        <option value="0" selected>None</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                    </select>
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="-100">-100</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="-50">-50</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="0" checked>0</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="50">50</label>
                     <label class="radio-inline"><input name="contrast" type="radio" value="100">100</label>
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label> -->
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
+                    <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
                 </div>
                 <div class="form-group">
                     <label><input name="alpha" type="checkbox" value="1" checked>Export as transparant PNG</label>
