@@ -295,4 +295,7 @@ You can click pic to watch vid.
  ## ver1.8.3
  * Now can remember last file you select.
  * Now can alert wrong file format.
+ ## ver1.8.4
+ * Add contrast edit.
+ * Add saturation edit.
 </details>
