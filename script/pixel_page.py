@@ -43,6 +43,10 @@ def post():
     scale = int(request.form['scale'])
     blur = int(request.form['blur'])
     erode = int(request.form['erode'])
+    saturation = int(request.form['saturation'])
+    contrast = int(request.form['contrast'])
+    # contrast = 0
+    # saturation = 0
     try:
         alpha = bool(int(request.form['alpha']))
     except:
@@ -66,7 +70,7 @@ def post():
                 img_pl.thumbnail((max_size_length, max_size_length), Image.ANTIALIAS)
                 img_pl.save(img_path)
     # commands
-    command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw)
+    command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw, saturation=saturation, contrast=contrast)
     img_res, colors = convert(img_path, command_dict)
     if file_format in ['gif', 'GIF']:
         return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=img_path)

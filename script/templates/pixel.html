@@ -57,7 +57,7 @@
                     <li>如果勾選“導出為透明PNG”，RGBA圖像將導出為透明PNG</li>
                     <li>然而，此時alpha通道被擴大到點的大小，半透明被忽略</li>
                     <li>如果您勾選“只有 1px 對 Twitter 透明”，只有左上角的像素會被導出為具有透明度的透明 PNG<br>
-                    當您想避免強制壓縮為 jpeg 時使用此選項</li>
+                    當您想避免在witter被強制壓縮為 jpeg 時使用此選項</li>
                     <li>處理後的圖像將在保留一定時間後刪除。在SNS等上粘貼時，建議在本地保存一次。</li>
                 </ul>
                 <h4>一般原則</h4>
@@ -114,8 +114,32 @@
                     <label class="radio-inline"><input name="erode" type="radio" value="2">強</label>
                 </div>
                 <div class="form-group">
+                    <div>飽和度更改</div>
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label> -->
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label> -->
+                    <label class="radio-inline"><input name="saturation" type="radio" value="-100">-100</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="-50">-50</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="0" checked>無</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="50">50</label>
+                    <label class="radio-inline"><input name="saturation" type="radio" value="100">100</label>
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label> -->
+                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
+                </div>
+                <div class="form-group">
+                    <div>對比度增減</div>
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label> -->
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label> -->
+                    <label class="radio-inline"><input name="contrast" type="radio" value="-100">-100</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="-50">-50</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="0" checked>無</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="50">50</label>
+                    <label class="radio-inline"><input name="contrast" type="radio" value="100">100</label>
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label> -->
+                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
+                </div>
+                <div class="form-group">
                     <label><input name="alpha" type="checkbox" value="1" checked>導出為透明PNG</label>
-                    <label><input name="to_tw" type="checkbox" value="1" checked>Twitter角落1pixel透明</label>
+                    <label><input name="to_tw" type="checkbox" value="1" checked>Twitter角落1pixel透明(避免被Twitter強制轉成jpg)</label>
                 </div>
                 <button type="submit" class="btn btn-primary">提交</button>
             </form>
