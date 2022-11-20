@@ -5,8 +5,8 @@
 
 我的 [像素化濾鏡工具](https://github.com/JingShing-Tools/Pixel-Art-transform-in-python) 的網路版。
 
-# [我的像素畫風濾鏡網站](https://pixel.jingshing.com/) 已經上線啦
-你可以 [點擊這個連結進入我的像素畫風濾鏡的網站](https://pixel.jingshing.com/)。
+# [我的像素畫風濾鏡網站](https://pixel.jingshing.com/traditional_chinese) 已經上線啦
+你可以 [點擊這個連結進入我的像素畫風濾鏡的網站](https://pixel.jingshing.com/traditional_chinese)。
 
 ## Usage用法
 ~~如果需要安裝套件，可以使用這個指令 : ```pip install -r requirements.txt```.~~
