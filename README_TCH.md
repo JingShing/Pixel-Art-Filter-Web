@@ -308,5 +308,6 @@ You can click pic to watch vid.
 - [ ] 多語言支持
 - [ ] 自定義模式
 - [ ] 參數鼠標移上去提示意思
+- [ ] 同個圖片重複使用
  
 </details>
