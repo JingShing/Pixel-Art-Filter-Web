@@ -251,6 +251,7 @@
         }
     }
     function set_language(){
+        load_language();
         document.getElementsByName("language")[0].value = 'en';
         localStorage.setItem('language', 'englsih');
     }
