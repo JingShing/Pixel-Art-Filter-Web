@@ -302,3 +302,12 @@ You can click pic to watch vid.
  * Add contrast edit.
  * Add saturation edit.
 </details>
+
+<details>
+<summary>To do list</summary>
+
+- [ ] QR code feature
+- [ ] Remember set
+- [ ] Multi language support
+
+</details>
