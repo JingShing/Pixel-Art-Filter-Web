@@ -121,7 +121,7 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
 # UI
-![UI](sample/UI_C.png)
+![UI](sample/UI_en.png)
 ## Image edit on web
 ### Before
 ![Before](sample/before.png)
@@ -276,7 +276,7 @@ You can click pic to watch vid.
 ![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
 
 ## UI
-![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI_C.png)
+![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI_en.png)
 
 ## Original image
 ![OR OR](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/or.jpg)
