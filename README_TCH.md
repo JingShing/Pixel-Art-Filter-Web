@@ -299,3 +299,13 @@ You can click pic to watch vid.
  * 增加飽和度更改
  * 增加對比度更改
 </details>
+
+<details>
+<summary>待做清單</summary>
+
+- [ ] QR code 功能
+- [ ] 記住設置
+- [ ] 多語言支持
+- [ ] 自定義模式
+ 
+</details>
