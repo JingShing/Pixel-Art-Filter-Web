@@ -96,8 +96,10 @@ def post():
     if img:
         # if upload new img
         img_path = os.path.join(static_path+'img', img_name + os.path.splitext(img_file_name)[-1])
-        result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img_file_name)[-1])
+        # result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img_file_name)[-1])
         img.save(img_path)
+    # I move out to here to prevent error: not refreshing.
+    result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img_file_name)[-1])
 
     file_format = os.path.splitext(img_file_name)[-1].replace('.', '')
     if not file_format in ['mp4', 'avi', 'flv']:
