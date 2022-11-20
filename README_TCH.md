@@ -115,7 +115,7 @@
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
 # UI
-![UI](sample/UI.png)
+![UI](sample/UI_C.png)
 ## 圖片線上處理
 ### 處理前
 ![Before](sample/before.png)
@@ -270,7 +270,7 @@ You can click pic to watch vid.
 ![UI2 UI2](sample/UI2.png)
 
 ## UI
-![UI UI](sample/UI.png)
+![UI UI](sample/UI_C.png)
 
 ## Original image原圖
 ![OR OR](sample/or.jpg)
