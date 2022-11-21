@@ -11,8 +11,8 @@ This tool can render image, gif and video into pixel art style.
 You can [click this to enter my Pixel Art Filter Website](https://pixel.jingshing.com/english).
 
 ## Usage
-~~If you want to install modules enter this command: ```pip install -r requirements.txt```~~
-> module you need:
+If you want to install modules enter this command: ```pip install -r requirements.txt```
+> module you need(If you can't install requirement.txt):
 >
 > Flask
 >
