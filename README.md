@@ -272,9 +272,6 @@ You can click pic to watch vid.
 * ![custom_mode custom_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/custom_mode.png)
 * ![simple_mode simple_mode](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/simple_mode.png)
 
-## New UI
-![UI2 UI2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI2.png)
-
 ## UI
 ![UI UI](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/UI_en.png)
 
