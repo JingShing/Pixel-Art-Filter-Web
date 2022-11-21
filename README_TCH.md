@@ -9,8 +9,8 @@
 你可以 [點擊這個連結進入我的像素畫風濾鏡的網站](https://pixel.jingshing.com/traditional_chinese)。
 
 ## Usage用法
-~~如果需要安裝套件，可以使用這個指令 : ```pip install -r requirements.txt```.~~
-> 需要的模塊:
+如果需要安裝套件，可以使用這個指令 : ```pip install -r requirements.txt```.
+> 需要的模塊(如果requirement.txt無法安裝):
 >
 > Flask
 >
