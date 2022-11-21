@@ -310,5 +310,8 @@ You can click pic to watch vid.
 - [ ] Remember set
 - [ ] Multi language support
 - [ ] Custom Mode
- 
+- [ ] Mouse on reference will show hint
+- [ ] kuwahara filter(Oil painting style)
+- [X] Same image recycle
+
 </details>
