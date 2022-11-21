@@ -79,69 +79,55 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4 clearfix">
             <form action="./" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>Image, GIF or mp4(maxinum:2MB) <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">Click here to get the local version to get rid of file size restriction</a></label>
-                    <input type="file" name="image" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi'>
+                <div class="form-group col-xs-12">
+                    <a id="file_select" class="btn btn-default">
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Open File
+                    </a>
+                    <span id="file_info" class="help-block">Image, GIF or mp4(maxinum:2MB)<a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">Click here to get the local version to get rid of file size restriction</a></span>
+                    <input type="file" name="image" id="file_input" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi' style="display:none;">
                     <input type="hidden" name="last_image" value="{{last_image}}">
                     <input type="hidden" name="language" value="{{language}}">
                 </div>
-                <div class="form-group">
-                    <div>Color number(bits)</div>
-                    <select class="radio-inline" name="k">
+                <div class="form-group col-xs-6">
+                    <label class="control-label" for="k">Color number(bits)</label>
+                    <select class="form-control" id="k" name="k">
                         <option value="2">2</option>
                         <option value="4" selected>4</option>
                         <option value="8">8</option>
                         <option value="16">16</option>
                     </select>
-                    <!-- <label class="radio-inline"><input name="k" type="radio" value="2">2</label>
-                    <label class="radio-inline"><input name="k" type="radio" value="4" checked>4</label>
-                    <label class="radio-inline"><input name="k" type="radio" value="8">8</label>
-                    <label class="radio-inline"><input name="k" type="radio" value="16">16</label> -->
                 </div>
-                <div class="form-group">
-                    <div>Pixel Size</div>
-                    <select class="radio-inline" name="scale">
+                <div class="form-group col-xs-6">
+                    <label for="scale">Pixel Size</label>
+                    <select class="form-control" id="scale" name="scale">
                         <option value="1">1</option>
                         <option value="2" selected>2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
                     </select>
-                    <!-- <label class="radio-inline"><input name="scale" type="radio" value="1">1</label>
-                    <label class="radio-inline"><input name="scale" type="radio" value="2" checked>2</label>
-                    <label class="radio-inline"><input name="scale" type="radio" value="3">3</label>
-                    <label class="radio-inline"><input name="scale" type="radio" value="4">4</label>
-                    <label class="radio-inline"><input name="scale" type="radio" value="5">5</label> -->
                 </div>
-                <div class="form-group">
-                    <div>Smooth</div>
-                    <select class="radio-inline" name="blur">
+                <div class="form-group col-xs-6">
+                    <label for="blur">Smooth</label>
+                    <select class="form-control" id="blur" name="blur">
                         <option value="0" selected>None</option>
                         <option value="50">Weak</option>
                         <option value="100">Medium</option>
                         <option value="200">Strong</option>
                     </select>
-                    <!-- <label class="radio-inline"><input name="blur" type="radio" value="0" checked>None</label>
-                    <label class="radio-inline"><input name="blur" type="radio" value="50">Weak</label>
-                    <label class="radio-inline"><input name="blur" type="radio" value="100">Medium</label>
-                    <label class="radio-inline"><input name="blur" type="radio" value="200">Strong</label> -->
                 </div>
-                <div class="form-group">
-                    <div>Outlines Enhence</div>
-                    <select class="radio-inline" name="erode">
+                <div class="form-group col-xs-6">
+                    <label for="erode">Outlines Enhence</label>
+                    <select class="form-control" id="erode" name="erode">
                         <option value="0" selected>None</option>
                         <option value="1">Weak</option>
                         <option value="2">Strong</option>
                     </select>
-                    <!-- <label class="radio-inline"><input name="erode" type="radio" value="0" checked>None</label>
-                    <label class="radio-inline"><input name="erode" type="radio" value="1">Weak</label>
-                    <label class="radio-inline"><input name="erode" type="radio" value="2">Strong</label> -->
                 </div>
-                <div class="form-group">
-                    <div>Saturation Edit</div>
-                    <select class="radio-inline" name="saturation">
+                <div class="form-group col-xs-6">
+                    <label for="saturation">Saturation Edit</label>
+                    <select class="form-control" id="saturation" name="saturation">
                         <option value="-250">-250</option>
                         <option value="-200">-200</option>
                         <option value="-150">-150</option>
@@ -154,19 +140,10 @@
                         <option value="200">200</option>
                         <option value="250">250</option>
                     </select>
-                    <!-- <label class="radio-inline"><input name="saturation" type="radio" value="-250">-250</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="-200">-200</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="-100">-100</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="-50">-50</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="0" checked>0</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="50">50</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="100">100</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="200">200</label>
-                    <label class="radio-inline"><input name="saturation" type="radio" value="250">250</label> -->
                 </div>
-                <div class="form-group">
-                    <div>Contrast Edit</div>
-                    <select class="radio-inline" name="contrast">
+                <div class="form-group col-xs-6">
+                    <label for="contrast">Contrast Edit</label>
+                    <select class="form-control" id="contrast" name="contrast">
                         <option value="-250">-250</option>
                         <option value="-200">-200</option>
                         <option value="-150">-150</option>
@@ -179,34 +156,33 @@
                         <option value="200">200</option>
                         <option value="250">250</option>
                     </select>
-                    <!-- <label class="radio-inline"><input name="contrast" type="radio" value="-250">-250</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="-200">-200</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="-100">-100</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="-50">-50</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="0" checked>0</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="50">50</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="100">100</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="200">200</label>
-                    <label class="radio-inline"><input name="contrast" type="radio" value="250">250</label> -->
                 </div>
-                <div class="form-group">
-                    <label><input name="alpha" type="checkbox" value="1" checked>Export as transparant PNG</label>
-                    <label><input name="to_tw" type="checkbox" value="1" checked>Twitter corner 1pixel transparant(avoid Twitter force image to jpg file)</label>
+                <div class="form-group col-xs-12">
+                    <div class="checkbox">
+                        <label><input id="alpha" name="alpha" type="checkbox" value="1" checked>Export as transparant PNG</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input id="to_tw" name="to_tw" type="checkbox" value="1" checked>Twitter corner 1pixel transparant(avoid Twitter force image to jpg file)</label>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">submit</button>
+                <div class="form-group col-xs-12">
+                <button type="submit" id="submit" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>Pixel Art Transform Button
+                </button>
             </form>
             <div class="add-margin-top">
                 <a href="https://twitter.com/share" class="twitter-share-button"
-                   data-url="https://pixel.jingshing.com/" data-text="Pixel-Art-Filter-Web" data-size="large"
-                   data-hashtags="Pixel-Art-Filter-Web" data-lang="en">Tweet</a>
+                   data-url="https://pixel.jingshing.com/" data-text="Pixel-Art-Filter-Tool" data-size="large"
+                   data-hashtags="Pixel-Art-Filter-Tool" data-lang="en">Tweet</a>
                 <script>
                     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
                 </script>
                 <p>Just a button</p>
             </div>
         </div>
+        </div>
         {% if result %}
-        <div class="col-md-9 add-margin-top">
+        <div class="col-md-8 add-margin-top">
             <ul class="nav nav-tabs">
                 <li class="nav-item active">
                     <a href="#result" class="nav-link" data-toggle="tab">Result</a>
@@ -232,7 +208,7 @@
             </div>
         </div>
         {% elif vid_result %}
-        <div class="col-md-9 add-margin-top">
+        <div class="col-md-8 add-margin-top">
             <ul class="nav nav-tabs">
                 <li class="nav-item active">
                     <a href="#result" class="nav-link" data-toggle="tab">Result</a>
@@ -258,15 +234,16 @@
             </div>
         </div>
         {% else %}
-        <div class="col-md-9">
+        <div class="col-md-6">
             <a class="twitter-timeline"
-               href="https://twitter.com/search?q="
-               data-widget-id="865822650572054529" data-chrome="nofooter noborders" target="_blank">#Pixel-Art-Filter-Web</a>
+                href="https://twitter.com/search?q="
+                data-widget-id="865822650572054529" data-chrome="nofooter noborders" target="_blank">#Pixel-Art-Filter-Web</a>
             <script>
                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
             </script>
+            <br>
+            <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" data-chrome="nofooter noborders" target="_blank">#If you want to use it without file size restriction you can use local edition</a>
         </div>
-        <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" style="position: relative;left: 15px;" data-chrome="nofooter noborders" target="_blank">#If you want to use it without file size restriction you can use local edition</a>
         {% endif %}
         {% if error %}
         <div class="modal fade in" id="alert" tabindex="-1">
@@ -292,21 +269,29 @@
     });
 </script>
 {% endif %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/js.cookie.js"></script>
+<script src="static/js/script.js"></script>
 <script>
+    $('#file_select').click(function(){
+        console.log('RRR');
+        $('#file_input').trigger('click'); 
+        }
+    );
     function load_language(){
         if(location.pathname.length==1){
-            if(localStorage.getItem('language')!='traditional_chinese'){
-                $.post(url_for("'{{url_for('traditional_chinese')}}'"));
+            if(localStorage.getItem('language')!='english'){
+                window.location.assign("{{url_for('traditional_chinese')}}");
             }
         }
     }
     function set_language(){
         load_language();
         document.getElementsByName("language")[0].value = 'en';
-        localStorage.setItem('language', 'englsih');
+        localStorage.setItem('language', 'english');
     }
     document.body.addEventListener('click',set_language, false);
-    
     window.addEventListener('load', load_language, false);
 </script>
 </body>
