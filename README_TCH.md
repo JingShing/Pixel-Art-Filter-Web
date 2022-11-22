@@ -301,6 +301,8 @@ You can click pic to watch vid.
  ## 版本1.8.5
  * 可以在右上角選擇要使用繁體中文或是英文版本
  * 網頁會記得你最後選擇的語言
+ ## 版本1.8.6
+ * 上傳檔案後會有檔案名稱和大小以及上傳圖樣的預覽。
 </details>
 
 <details>
@@ -313,5 +315,6 @@ You can click pic to watch vid.
 - [ ] 參數鼠標移上去提示意思
 - [ ] kuwahara filter(油畫風格)
 - [X] 同個圖片重複使用
+- [ ] 深夜模式
  
 </details>
