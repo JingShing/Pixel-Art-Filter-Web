@@ -2380,10 +2380,53 @@ fieldset[disabled] .btn-primary.active {
   border-color: #357ebd;
 }
 
-.btn-primary .badge {
-  color: #428bca;
+/* Dark button lost so I rewrite one */
+.btn-dark {
+  color: #ffffff;
+  background-color: #343a40;
+  border-color: #000;
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-dark.active,
+.open .dropdown-toggle.btn-dark {
+  color: #ffffff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-dark:active,
+.btn-dark.active,
+.open .dropdown-toggle.btn-dark {
+  background-image: none;
+}
+
+.btn-dark.disabled,
+.btn-dark[disabled],
+fieldset[disabled] .btn-dark,
+.btn-dark.disabled:hover,
+.btn-dark[disabled]:hover,
+fieldset[disabled] .btn-dark:hover,
+.btn-dark.disabled:focus,
+.btn-dark[disabled]:focus,
+fieldset[disabled] .btn-dark:focus,
+.btn-dark.disabled:active,
+.btn-dark[disabled]:active,
+fieldset[disabled] .btn-dark:active,
+.btn-dark.disabled.active,
+.btn-dark[disabled].active,
+fieldset[disabled] .btn-dark.active {
+  background-color: #343a40;
+  border-color: #000;
+}
+
+.btn-dark .badge {
+  color: #343a40;
   background-color: #fff;
 }
+/* btn-dark end*/
 
 .btn-warning {
   color: #ffffff;
