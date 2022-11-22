@@ -296,6 +296,7 @@ You can click pic to watch vid.
  * 網頁會記得你最後選擇的語言
  ## 版本1.8.6
  * 上傳檔案後會有檔案名稱和大小以及上傳圖樣的預覽。
+ * ![preview](sample/preview.png)
 </details>
 
 <details>
