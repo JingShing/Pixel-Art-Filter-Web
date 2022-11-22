@@ -302,7 +302,7 @@ You can click pic to watch vid.
  * Add English and Traditional Chinese can select from right upper corner.
  * Page will remember what last language you choose.
  ## ver1.8.6
- * Add uploaded file preview.
+ * Add uploaded file preview. It can show you file name, file size and display preview.
 </details>
 
 <details>
@@ -315,5 +315,6 @@ You can click pic to watch vid.
 - [ ] Mouse on reference will show hint
 - [ ] kuwahara filter(Oil painting style)
 - [X] Same image recycle
+- [ ] Dark mode
 
 </details>
