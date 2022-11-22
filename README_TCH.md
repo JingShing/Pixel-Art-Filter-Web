@@ -118,7 +118,7 @@
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
 # UI
-![UI](sample/UI_C.png)
+![UI](UI_BW_tch.png)
 ## 圖片線上處理
 ### 處理前
 ![Before](sample/before.png)
