@@ -296,6 +296,7 @@ You can click pic to watch vid.
  * Page will remember what last language you choose.
  ## ver1.8.6
  * Add uploaded file preview. It can show you file name, file size and display preview.
+ * ![preview](sample/preview.png)
 </details>
 
 <details>
