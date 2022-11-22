@@ -83,10 +83,19 @@
             <form action="./" method="post" enctype="multipart/form-data">
                 <div class="form-group col-xs-12">
                     <a id="file_select" class="btn btn-default">
-                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Open File
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Open File
                     </a>
                     <span id="file_info" class="help-block">Image, GIF or mp4(maxinum:2MB)<a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">Click here to get the local version to get rid of file size restriction</a></span>
                     <input type="file" name="image" id="file_input" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi' style="display:none;">
+                    {% if last_image %}
+                    <div class="preview">
+                        <p>{{last_image}}</p>
+                    </div>
+                    {% else %}
+                    <div class="preview">
+                        <p>No file uploaded</p>
+                    </div>
+                    {% endif %}
                     <input type="hidden" name="last_image" value="{{last_image}}">
                     <input type="hidden" name="language" value="{{language}}">
                 </div>
@@ -168,7 +177,7 @@
                 </div>
                 <div class="form-group col-xs-12">
                 <button type="submit" id="submit" class="btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>Pixel Art Transform Button
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Pixel Art Transform Button
                 </button>
             </form>
             <div class="add-margin-top">
@@ -270,16 +279,7 @@
     });
 </script>
 {% endif %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/js.cookie.js"></script>
-<script src="static/js/script.js"></script>
 <script>
-    $('#file_select').click(function(){
-        console.log('RRR');
-        $('#file_input').trigger('click'); 
-        }
-    );
     function load_language(){
         if(location.pathname.length==1){
             if(localStorage.getItem('language')!='english'){
@@ -292,8 +292,13 @@
         document.getElementsByName("language")[0].value = 'en';
         localStorage.setItem('language', 'english');
     }
-    document.body.addEventListener('click',set_language, false);
-    window.addEventListener('load', load_language, false);
+    function init(){        
+        document.body.addEventListener('click',set_language, false);
+        window.addEventListener('load', load_language, false);
+        window.addEventListener('load', set_last_image_name, false);
+    }
+    window.addEventListener('load', init, false);
 </script>
+<script src="static/js/file_load_helper_en.js"></script>
 </body>
 </html>
