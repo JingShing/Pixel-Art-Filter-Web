@@ -309,6 +309,7 @@ You can click pic to watch vid.
 - [ ] Mouse on reference will show hint
 - [ ] kuwahara filter(Oil painting style)
 - [ ] Dark mode
+- [ ] Add hash detect
  
 ## Done
 - [X] Same image recycle
