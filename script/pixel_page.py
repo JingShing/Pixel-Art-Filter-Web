@@ -45,19 +45,20 @@ def post():
     last_image_name = request.values['last_image']
     format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
     language = request.values['language']
-    print(language)
     global pixel_html_path, html_lang
     if language:
         html_lang = language
     else:
         html_lang = 'en'
     pixel_html_path = get_pixel_html_name()
-    print(pixel_html_path)
-
     if img:
         last_image_name = None
         img_file_name = img.filename
     elif '.' in last_image_name:
+        if 'img' in last_image_name:
+            pass
+        else:
+            last_image_name = 'static/img/' + last_image_name
         img_file_name = last_image_name
         img_path = last_image_name
         result_path = last_image_name.replace('img', 'results')
@@ -67,7 +68,6 @@ def post():
             error='沒有選擇圖片'
         elif html_lang == 'en':
             error='Did not select image'
-        print(error)
         return render_template(pixel_html_path, error=error)
     if img_file_name.split('.')[-1].lower() not in format_support:
         if html_lang == 'tch':
@@ -110,13 +110,21 @@ def post():
     # commands
     command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw, saturation=saturation, contrast=contrast)
     img_res, colors = convert(img_path, command_dict)
+
+    if '\\' in img_path:
+        last_image = img_path.split('\\')[-1]
+    elif '/' in img_path:
+        last_image = img_path.split('/')[-1]
+    else:
+        last_image = img_path
+
     if file_format in ['gif', 'GIF']:
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=img_path)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
     elif file_format in ['mp4', 'avi', 'flv']:
-        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=img_path)
+        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
     else:
         cv2.imwrite(result_path, img_res)
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=img_path)
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
 
 @app.errorhandler(413)
 def error_file_size(e):
