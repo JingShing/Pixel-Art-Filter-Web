@@ -265,13 +265,6 @@ You can click pic to watch vid.
 * ![gif1 gif1](sample/gif1.gif)
 * ![gif2 gif2](sample/gif2.gif)
 
-## 模式切換
-* ![custom_mode custom_mode](sample/custom_mode.png)
-* ![simple_mode simple_mode](sample/simple_mode.png)
-
-## 新的UI介面
-![UI2 UI2](sample/UI2.png)
-
 ## UI
 ![UI UI](sample/UI_C.png)
 
