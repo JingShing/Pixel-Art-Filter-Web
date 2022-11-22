@@ -100,7 +100,7 @@
             <form action="./" method="post" enctype="multipart/form-data">
                 <div class="form-group col-xs-12">
                     <a id="file_select" class="btn btn-default">
-                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 開啟檔案
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>開啟檔案
                     </a>
                     <span id="file_info" class="help-block">圖像、GIF或影片(最大2MB) <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">點擊取得沒有大小限制的本地版</a></span>
                     <input type="file" name="image" id="file_input" accept='image/png,image/jpeg,image/gif,video/mp4,video/avi' style="display:none;">
@@ -108,7 +108,7 @@
                     <input type="hidden" name="language" value="{{language}}">
                 </div>
                 <div class="form-group col-xs-6">
-                    <label class="control-label" for="k">色數（幾bit）</label>
+                    <label class="control-label" for="k">顏色數量(幾bit的風格)</label>
                     <select class="form-control" id="k" name="k">
                         <option value="2">2</option>
                         <option value="4" selected>4</option>
@@ -117,16 +117,17 @@
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="scale">像素顆粒大小</label>
+                    <label for="scale">像素大小(像素顆粒大小)</label>
                     <select class="form-control" id="scale" name="scale">
                         <option value="1">1</option>
                         <option value="2" selected>2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="blur">平滑、局部模糊圖片</label>
+                    <label for="blur">平滑化圖片(將局部模糊)</label>
                     <select class="form-control" id="blur" name="blur">
                         <option value="0" selected>無</option>
                         <option value="50">弱</option>
@@ -184,7 +185,7 @@
                 </div>
                 <div class="form-group col-xs-12">
                 <button type="submit" id="submit" class="btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 像素轉換按鈕
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>像素轉換按鈕
                 </button>
             </form>
             <div class="add-margin-top">
