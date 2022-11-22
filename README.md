@@ -301,6 +301,8 @@ You can click pic to watch vid.
  ## ver1.8.5
  * Add English and Traditional Chinese can select from right upper corner.
  * Page will remember what last language you choose.
+ ## ver1.8.6
+ * Add uploaded file preview.
 </details>
 
 <details>
