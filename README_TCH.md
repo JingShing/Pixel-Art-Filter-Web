@@ -309,6 +309,7 @@ You can click pic to watch vid.
 - [ ] 參數鼠標移上去提示意思
 - [ ] kuwahara filter(油畫風格)
 - [ ] 深夜模式
+- [ ] 新增哈希比對
  
 ## 已完成
 - [X] 同個圖片重複使用
