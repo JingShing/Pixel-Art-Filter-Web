@@ -314,7 +314,9 @@ You can click pic to watch vid.
 - [ ] Custom Mode
 - [ ] Mouse on reference will show hint
 - [ ] kuwahara filter(Oil painting style)
-- [X] Same image recycle
 - [ ] Dark mode
+ 
+## Done
+- [X] Same image recycle
 
 </details>
