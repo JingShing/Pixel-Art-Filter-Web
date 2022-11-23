@@ -302,6 +302,8 @@ You can click pic to watch vid.
  * Add server side value detect to protect server cpu.
  * Add multi language support.
  * If you hover mouse cursor on the options it will pop hint bubble.
+ ## Ver1.8.8
+ * Add hash tool to keep same image waste space.
 </details>
 
 <details>
