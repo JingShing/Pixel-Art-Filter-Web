@@ -301,6 +301,7 @@ You can click pic to watch vid.
  * 現在網頁會記住你上一次的配置
  * 新增後端檢測，把值控制在合理範圍
  * 支持多國語言翻譯
+ * 鼠標懸浮在選項的文字時會跳出說明氣泡
 </details>
 
 <details>
@@ -308,10 +309,10 @@ You can click pic to watch vid.
 
 - [ ] QR code 功能
 - [ ] 自定義模式
-- [ ] 參數鼠標移上去提示意思
 - [ ] kuwahara filter(油畫風格)
 - [ ] 深夜模式
 - [ ] 新增哈希比對
+- [ ] 新增下載按鈕
  
 ## 已完成
 2022/11/16
@@ -320,4 +321,6 @@ You can click pic to watch vid.
  2022/11/23
 - [X] 記住設置
 - [X] 支持多國語言
+- [X] 選項文字，鼠標移上去提示更多訊息
+
 </details>
