@@ -297,6 +297,8 @@ You can click pic to watch vid.
  ## ver1.8.6
  * Add uploaded file preview. It can show you file name, file size and display preview.
  * ![preview](sample/preview.png)
+ ## ver1.8.7
+ * Add multi language support.
 </details>
 
 <details>
