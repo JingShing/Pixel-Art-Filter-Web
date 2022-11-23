@@ -312,6 +312,8 @@ You can click pic to watch vid.
 - [ ] kuwahara filter(Oil painting style)
 - [ ] Dark mode
 - [ ] Add hash detect
+- [ ] Add Download button
+- [ ] Add twitter api to auto post
  
 ## Done
 2022/11/16
