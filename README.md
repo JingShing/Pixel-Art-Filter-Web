@@ -298,6 +298,8 @@ You can click pic to watch vid.
  * Add uploaded file preview. It can show you file name, file size and display preview.
  * ![preview](sample/preview.png)
  ## ver1.8.7
+ * Now page will remember your settings.
+ * Add server side value detect to protect server cpu.
  * Add multi language support.
 </details>
 
@@ -305,7 +307,6 @@ You can click pic to watch vid.
 <summary>To do list</summary>
 
 - [ ] QR code feature
-- [ ] Remember set
 - [ ] Custom Mode
 - [ ] Mouse on reference will show hint
 - [ ] kuwahara filter(Oil painting style)
@@ -317,6 +318,7 @@ You can click pic to watch vid.
 - [X] Same image recycle
 
 2022/11/23
-- [X] Multi language support
+ - [X] Remember set
+ - [X] Multi language support
 
 </details>
