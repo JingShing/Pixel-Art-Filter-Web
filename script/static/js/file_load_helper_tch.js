@@ -22,7 +22,7 @@ function updateImageDisplay() {
     const curFiles = input.files;
     if (curFiles.length === 0) {
         const para = document.createElement('p');
-        para.textContent = 'No files currently selected for upload';
+        para.textContent = '目前沒有選擇檔案';
         preview.appendChild(para);
     } else {
         const list = document.createElement('span');
@@ -50,7 +50,7 @@ function updateImageDisplay() {
 
         }
         else {
-            para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
+            para.textContent = `File name ${file.name}: 並非支持的檔案類型，請重新選取`;
             listItem.appendChild(para);
         }
         list.appendChild(listItem);
