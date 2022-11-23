@@ -302,6 +302,9 @@ You can click pic to watch vid.
  * 新增後端檢測，把值控制在合理範圍
  * 支持多國語言翻譯
  * 鼠標懸浮在選項的文字時會跳出說明氣泡
+ ## 版本1.8.8
+ * 新增哈希比對，將相同的圖片做比對後處理，減少相同檔案的堆積
+  * 更多資訊可以看[這個 github 文檔](https://github.com/JingShing-Python/Image-Hash-Detect-And-Delete)
 </details>
 
 <details>
