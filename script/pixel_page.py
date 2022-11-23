@@ -21,6 +21,11 @@ max_size_length = 2048
 config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False}
 app.config.update(config)
 
+def around_value(value, min_num, max_num):
+    value = max(value, min_num)
+    value = min(value, max_num)
+    return value
+
 @app.route("/english",methods=['POST','GET'])
 def english():
     global pixel_html_path, html_lang
@@ -81,8 +86,14 @@ def post():
     erode = int(request.form['erode'])
     saturation = int(request.form['saturation'])
     contrast = int(request.form['contrast'])
-    # contrast = 0
-    # saturation = 0
+    # avoid value broken
+    k = around_value(k, 2, 16)
+    scale = around_value(scale, 1, 10)
+    blur = around_value(blur, 0, 255)
+    erode = around_value(erode, 0, 255)
+    saturation = around_value(saturation, -255, 255)
+    contrast = around_value(contrast, -255, 255)
+
     try:
         alpha = bool(int(request.form['alpha']))
     except:
