@@ -50,7 +50,7 @@ function updateImageDisplay() {
 
         }
         else {
-            para.textContent = `File name ${file.name}: 並非支持的檔案類型，請重新選取`;
+            para.textContent = `檔名 ${file.name}: 並非支持的檔案類型，請重新選取`;
             listItem.appendChild(para);
         }
         list.appendChild(listItem);
