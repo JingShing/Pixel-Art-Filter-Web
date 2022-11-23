@@ -13,6 +13,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- checkbox -->
     <link href="static/css/checkbox.css" rel="stylesheet">
+    <!-- Teach bubble -->
+    <link href="static/css/hover_teach.css" rel="stylesheet">
+    <!-- format -> <button aria-label="instruction" data-balloon-pos="direction(ex:up)"></button> -->
+    <!-- format -> aria-label="" data-balloon-pos="up" -->
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -85,7 +89,7 @@
         <div class="col-md-4 clearfix">
             <form action="./" method="post" enctype="multipart/form-data">
                 <div class="form-group col-xs-12">
-                    <a id="file_select" class="btn btn-dark">
+                    <a id="file_select" class="btn btn-dark" aria-label="現在支持 PNG, JPG, MP4 和 AVI 檔案格式" data-balloon-pos="up">
                         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 開啟檔案
                     </a>
                     <span id="file_info" class="help-block">圖像、GIF或影片(最大2MB)<a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" target="_blank">點擊取得沒有大小限制的本地版</a></span>
@@ -103,7 +107,7 @@
                     <input type="hidden" name="language" value="{{language}}">
                 </div>
                 <div class="form-group col-xs-6">
-                    <label class="control-label" for="k">色數(幾bit)</label>
+                    <label class="control-label" for="k" aria-label="顏色數量會決定轉換圖片的風格偏向多少bits" data-balloon-pos="up">色數(幾bit)</label>
                     <select class="form-control" id="k" name="k">
                         <option value="2">2</option>
                         <option value="4" selected>4</option>
@@ -112,7 +116,7 @@
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="scale">像素顆粒大小</label>
+                    <label for="scale" aria-label="顆粒越大的話，圖片會更加模糊，也會加快生成的速度" data-balloon-pos="up">像素顆粒大小</label>
                     <select class="form-control" id="scale" name="scale">
                         <option value="1">1</option>
                         <option value="2" selected>2</option>
@@ -122,7 +126,7 @@
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="blur">平滑、局部模糊</label>
+                    <label for="blur" aria-label="平滑化可以將圖片做局部模糊，可以減少燥點，讓畫面看起來更平順" data-balloon-pos="up">平滑、局部模糊</label>
                     <select class="form-control" id="blur" name="blur">
                         <option value="0" selected>無</option>
                         <option value="50">弱</option>
@@ -131,7 +135,7 @@
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="erode">輪廓線增強</label>
+                    <label for="erode" aria-label="輪廓線增強可以讓物體更加突出，強調物體" data-balloon-pos="up">輪廓線增強</label>
                     <select class="form-control" id="erode" name="erode">
                         <option value="0" selected>無</option>
                         <option value="1">弱</option>
@@ -139,7 +143,7 @@
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="saturation">飽和度增減</label>
+                    <label for="saturation" aria-label="飽和度增加或減少會讓圖片的色調更加柔和或更加冷調" data-balloon-pos="up">飽和度增減</label>
                     <select class="form-control" id="saturation" name="saturation">
                         <option value="-250">-250</option>
                         <option value="-200">-200</option>
@@ -155,7 +159,7 @@
                     </select>
                 </div>
                 <div class="form-group col-xs-6">
-                    <label for="contrast">對比度增減</label>
+                    <label for="contrast" aria-label="對比度的增加或減少會讓畫面更刺激或平淡" data-balloon-pos="up">對比度增減</label>
                     <select class="form-control" id="contrast" name="contrast">
                         <option value="-250">-250</option>
                         <option value="-200">-200</option>
@@ -172,21 +176,21 @@
                 </div>
                 <div class="form-group col-xs-12">
                     <div class="checkbox">
-                        <input id="alpha" name="alpha" type="checkbox" value="1" checked><label for="alpha">導出為透明PNG</label>
+                        <input id="alpha" name="alpha" type="checkbox" value="1" checked><label for="alpha" aria-label="可以保留PNG圖片的透明部分" data-balloon-pos="up">導出為透明PNG</label>
                     </div>
                     <div class="checkbox">
-                        <input id="to_tw" name="to_tw" type="checkbox" value="1" checked><label for="to_tw">角落1px透明(防止Twitter壓縮jpg)</label>
+                        <input id="to_tw" name="to_tw" type="checkbox" value="1" checked><label for="to_tw" aria-label="可以防止Twitter壓縮圖片變成JPG格式" data-balloon-pos="up">角落1px透明(防止Twitter壓縮jpg)</label>
                     </div>
                 </div>
                 <div class="form-group col-xs-12">
-                <button type="submit" id="submit" class="btn btn-dark btn-block">
+                <button type="submit" id="submit" class="btn btn-dark btn-block" aria-label="讓夢想成真吧！" data-balloon-pos="up">
                     <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 像素轉換按鈕
                 </button>
             </form>
             <div class="add-margin-top">
                 <a href="https://twitter.com/share" class="twitter-share-button"
                    data-url="https://pixel.jingshing.com/" data-text="像素風濾鏡工具" data-size="large"
-                   data-hashtags="像素風濾鏡工具" data-lang="en">Tweet</a>
+                   data-hashtags="像素風濾鏡工具" data-lang="en" aria-label="啾啾啾" data-balloon-pos="up">Tweet</a>
                 <script>
                     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
                 </script>
