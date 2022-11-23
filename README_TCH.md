@@ -297,14 +297,16 @@ You can click pic to watch vid.
  ## 版本1.8.6
  * 上傳檔案後會有檔案名稱和大小以及上傳圖樣的預覽。
  * ![preview](sample/preview.png)
+ ## 版本1.8.7
+ * 現在網頁會記住你上一次的配置
+ * 新增後端檢測，把值控制在合理範圍
+ * 支持多國語言翻譯
 </details>
 
 <details>
 <summary>待做清單</summary>
 
 - [ ] QR code 功能
-- [ ] 記住設置
-- [ ] 多語言支持
 - [ ] 自定義模式
 - [ ] 參數鼠標移上去提示意思
 - [ ] kuwahara filter(油畫風格)
@@ -312,6 +314,10 @@ You can click pic to watch vid.
 - [ ] 新增哈希比對
  
 ## 已完成
+2022/11/16
 - [X] 同個圖片重複使用
 
+ 2022/11/23
+- [X] 記住設置
+- [X] 支持多國語言
 </details>
