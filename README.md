@@ -304,7 +304,6 @@ You can click pic to watch vid.
 
 - [ ] QR code feature
 - [ ] Remember set
-- [ ] Multi language support
 - [ ] Custom Mode
 - [ ] Mouse on reference will show hint
 - [ ] kuwahara filter(Oil painting style)
@@ -312,6 +311,10 @@ You can click pic to watch vid.
 - [ ] Add hash detect
  
 ## Done
+2022/11/16
 - [X] Same image recycle
+
+2022/11/23
+- [X] Multi language support
 
 </details>
