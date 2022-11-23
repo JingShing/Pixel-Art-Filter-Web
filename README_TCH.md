@@ -313,6 +313,7 @@ You can click pic to watch vid.
 - [ ] 深夜模式
 - [ ] 新增哈希比對
 - [ ] 新增下載按鈕
+- [ ] 新增調用twitter API 自動貼文
  
 ## 已完成
 2022/11/16
