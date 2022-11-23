@@ -10,7 +10,7 @@ def check_image_by_path(folder_path, detect_file_path):
     for file_name in os.listdir(folder_path):
         if file_name.split('.')[-1] in check_file_format:
             hashed_image = imagehash.average_hash(Image.open(folder_path + file_name))
-            if hashed_image==detect_file_hash and file_name != detect_file_name:
+            if hashed_image==detect_file_hash and folder_path+file_name != detect_file_path:
                 os.remove(folder_path + file_name)
                 print('removed: ' + folder_path + file_name)
 
