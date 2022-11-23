@@ -7,6 +7,7 @@ import hashlib
 import datetime as dt
 from settings import *
 from pixel_converter import *
+from hash_delete_tool import check_all_image
 pixel_html_pre_path = 'pixel'
 pixel_html_pro_path = '.html'
 html_lang = 'tch'
@@ -51,6 +52,8 @@ def post():
     format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
     language = request.values['language']
     global pixel_html_path, html_lang
+    check_all_image('static/img/')
+    check_all_image('static/results/')
     if language:
         html_lang = language
     else:
