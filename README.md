@@ -301,6 +301,7 @@ You can click pic to watch vid.
  * Now page will remember your settings.
  * Add server side value detect to protect server cpu.
  * Add multi language support.
+ * If you hover mouse cursor on the options it will pop hint bubble.
 </details>
 
 <details>
@@ -308,7 +309,6 @@ You can click pic to watch vid.
 
 - [ ] QR code feature
 - [ ] Custom Mode
-- [ ] Mouse on reference will show hint
 - [ ] kuwahara filter(Oil painting style)
 - [ ] Dark mode
 - [ ] Add hash detect
@@ -318,7 +318,8 @@ You can click pic to watch vid.
 - [X] Same image recycle
 
 2022/11/23
- - [X] Remember set
- - [X] Multi language support
+- [X] Remember set
+- [X] Multi language support
+- [X] Mouse hover hint
 
 </details>
