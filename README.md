@@ -124,6 +124,10 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 
 # UI
 ![UI](sample/UI_dk_en.png)
+
+<details>
+<summary>Feature Summary</summary>
+
 ## Image edit on web
 ### Before
 ![Before](sample/before.png)
@@ -157,6 +161,9 @@ You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ)
 ![2 2](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/2.png)
 ## Effect 2bit
 ![3 3](https://github.com/JingShing/Pixel-Art-transform-in-python/blob/main/sample/3.png)
+
+</details>
+
 <details>
 <summary>Update Log</summary>
 
