@@ -38,7 +38,7 @@ def twitter_login():
     if not twitter.authorized:
         return redirect(url_for('twitter.login'))
     account_info = twitter.get('account/settings.json')
-    if account_info.ok:
+    if account_info:
         account_info_json = account_info.json()
         return '<h1> Your Twitter name is @{}'.format(account_info_json['screen_name'])
     return '<h1> Request failed!</h1>'
