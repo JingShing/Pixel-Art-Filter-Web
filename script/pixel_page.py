@@ -46,8 +46,12 @@ def callback():
     auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.request_token = {'oauth_token': oauth_token, 'oauth_token_secret': oauth_verifier}
     auth.get_access_token(oauth_verifier)
-    user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
-    return user_tokens
+    user_token = auth.access_token
+    user_secret_token = auth.access_token_secret
+    # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
+    # return user_tokens
+    return render_template(pixel_html_path)
+
 @app.route('/tweet')
 def tweet():
     # You would read these values from the session
