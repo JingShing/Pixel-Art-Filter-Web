@@ -315,11 +315,9 @@ You can click pic to watch vid.
 <details>
 <summary>待做清單</summary>
 
-- [ ] QR code 功能
 - [ ] 自定義模式
 - [ ] kuwahara filter(油畫風格)
 - [ ] 深夜模式
-- [ ] 新增哈希比對
 - [ ] 新增下載按鈕
 - [ ] 新增調用twitter API 自動貼文
  
@@ -327,9 +325,15 @@ You can click pic to watch vid.
 2022/11/16
 - [X] 同個圖片重複使用
 
+ 2022/11/20
+- [X] 新增哈希比對
+ 
  2022/11/23
 - [X] 記住設置
 - [X] 支持多國語言
 - [X] 選項文字，鼠標移上去提示更多訊息
+ 
+2022/11/25
+- [X] QR code 功能
 
 </details>
