@@ -8,7 +8,6 @@ import datetime as dt
 from settings import *
 from pixel_converter import *
 from hash_delete_tool import *
-from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
 from private_key import secret_key, api_key, api_secret
 pixel_html_pre_path = 'pixel'
 pixel_html_pro_path = '.html'
@@ -31,18 +30,6 @@ config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False, 'SEC
 app.config.update(config)
 
 # for twitter
-twitter_blueprint = make_twitter_blueprint(api_key=api_key, api_secret=api_secret)
-app.register_blueprint(twitter_blueprint, url_prefix='/twitter_login')
-@app.route('/twitter')
-def twitter_login():
-    if not twitter.authorized:
-        return redirect(url_for('twitter.login'))
-    account_info = twitter.get('account/settings.json')
-    if account_info.ok:
-        account_info_json = account_info.json()
-        return '<h1> Your Twitter name is @{}'.format(account_info_json['screen_name'])
-    return '<h1> Request failed!</h1>'
-
 
 def around_value(value, min_num, max_num):
     # return value between min and max
