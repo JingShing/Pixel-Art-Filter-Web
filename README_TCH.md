@@ -121,6 +121,11 @@
 
 # UI
 ![UI](sample/UI_dk_tch.png)
+
+
+<details>
+<summary>功能概要</summary>
+
 ## 圖片線上處理
 ### 處理前
 ![Before](sample/before.png)
@@ -154,6 +159,8 @@
 ## Effect 2bit 2位元
 ![3 3](sample/3.png)
 
+</details>
+ 
 <details>
 <summary>Update Log更新紀錄</summary>
 
