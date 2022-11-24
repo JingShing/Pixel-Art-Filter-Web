@@ -37,12 +37,9 @@ app.register_blueprint(twitter_blueprint, url_prefix='/login')
 def twitter_login():
     if not twitter.authorized:
         return redirect(url_for('twitter.login'))
-    account_info = twitter.get('account/settings.json')
-    if account_info:
-        account_info_json = account_info.json()
-        # return '<h1> Your Twitter name is @{}'.format(account_info_json['screen_name'])
-        return account_info
-    return '<h1> Request fail</h1>'
+    resp = twitter.get("account/settings.json")
+    assert resp.ok
+    return "You are @{screen_name} on Twitter".format(screen_name=resp.json()["screen_name"])
 
 def around_value(value, min_num, max_num):
     # return value between min and max
