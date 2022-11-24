@@ -183,6 +183,10 @@
                     <div class="checkbox">
                         <input id="to_tw" name="to_tw" type="checkbox" value="1" checked><label for="to_tw" aria-label="可以防止Twitter壓縮圖片變成JPG格式" data-balloon-pos="up" data-balloon-length="medium">角落1px透明(防止Twitter壓縮jpg)</label>
                     </div>
+                    <div class="checkbox">
+                        <input id="qr_code" name="qr_code" type="checkbox" value="1"><label for="qr_code" aria-label="可以增加訊息到圖片中，轉換成 QR code" data-balloon-pos="up" data-balloon-length="medium">增加 QR code到圖片</label>
+                    </div>
+                    <label id="qr_code_content_hint" aria-label="可以增加訊息到圖片中，轉換成 QR code(目前支持英文訊息和網址)" data-balloon-pos="up" data-balloon-length="medium" hidden>QR code 內容：</label><input id="qr_code_content" name="qr_code_content" type="text" hidden>
                 </div>
                 <div class="form-group col-xs-12">
                 <button type="submit" id="submit" class="btn btn-dark btn-block" aria-label="讓夢想成真吧！" data-balloon-pos="up" data-balloon-length="medium">
@@ -303,7 +307,6 @@
     }
     function init(){
         document.body.addEventListener('click',set_language, false);
-        document.getElementById('file_input').addEventListener('click', set_last_image_name, false);
         load_language();
         set_last_image_name();
     }
@@ -311,6 +314,8 @@
 </script>
 <script src="static/js/file_load_helper_tchinese.js"></script>
 <script src="static/js/pixel_set.js"></script>
+<!-- QR code -->
+<script src="static/js/qr_code_enable.js"></script>
 <!-- google translate -->
 <script type="text/javascript" src="static\js\google_translate_element.js"></script>
 <script type="text/javascript" src="static\js\google_translate_tch.js"></script>
