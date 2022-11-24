@@ -32,7 +32,7 @@ app.config.update(config)
 
 # for twitter
 twitter_blueprint = make_twitter_blueprint(api_key=api_key, api_secret=api_secret)
-app.register_blueprint(twitter_blueprint, url_prefix='/twitter_login')
+app.register_blueprint(twitter_blueprint, url_prefix='/login')
 @app.route('/twitter')
 def twitter_login():
     if not twitter.authorized:
@@ -42,7 +42,6 @@ def twitter_login():
         account_info_json = account_info.json()
         return '<h1> Your Twitter name is @{}'.format(account_info_json['screen_name'])
     return '<h1> Request failed!</h1>'
-
 
 def around_value(value, min_num, max_num):
     # return value between min and max
