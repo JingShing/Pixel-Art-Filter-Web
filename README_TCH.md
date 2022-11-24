@@ -132,6 +132,9 @@
 ### 處理後
 ![After_vid](sample/video_edited.png)
 
+## 現已支持 QR code 生成
+![QR_code](sample/QR_code.png)
+
 ## 現已支持影片格式
 可以點擊下方圖片[觀看範例影片](https://youtu.be/W8HxlqgLQnQ)。
 
