@@ -21,6 +21,8 @@
 > Pillow
 >
 > tqdm
+>
+> MyQR
 
 如果想要使用，請啟動： ```script/pixel_page.py```
 
@@ -305,6 +307,9 @@ You can click pic to watch vid.
  ## 版本1.8.8
  * 新增哈希比對，將相同的圖片做比對後處理，減少相同檔案的堆積
   * 更多資訊可以看[這個 github 文檔](https://github.com/JingShing-Python/Image-Hash-Detect-And-Delete)
+ ## 版本1.9
+ * 正在研究Twitter API
+ * 增加 QR code 生成的功能，可以將訊息或網址貼增加到圖片中
 </details>
 
 <details>
