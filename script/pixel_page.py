@@ -48,14 +48,13 @@ def callback():
     auth.get_access_token(oauth_verifier)
     user_token = auth.access_token
     user_token_secret = auth.access_token_secret
-    auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.set_access_token(user_token,user_token_secret)
     api = tweepy.API(auth)
     # Create a tweet - random() to not write same tweet twice
     api.update_status(f"A Tweet from Flask - {random.random()}")
-    # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
-    # return user_tokens
-    return render_template(pixel_html_path)
+    # user_token = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
+    # return user_token
+    return "Tweet send with Flask"
 
 def around_value(value, min_num, max_num):
     # return value between min and max
