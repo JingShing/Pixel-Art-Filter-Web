@@ -1,18 +1,28 @@
 # coding:utf-8
 from flask import Flask, render_template, request, redirect, url_for
 import os
-import cv2
-from PIL import Image
+
+# random file name
 import hashlib
 import datetime as dt
+
+# image process
+import cv2
+from PIL import Image
 from settings import *
 from pixel_converter import *
+
 # hash tool
 from hash_delete_tool import *
+
 # for twitter
 from private_key import secret_key, api_key, api_secret
 import tweepy
 import random
+
+# qrcode
+from qrcode_process import qr_code_process
+
 pixel_html_pre_path = 'pixel'
 pixel_html_pro_path = '.html'
 html_lang = 'tch'
@@ -119,6 +129,7 @@ def post():
         img_path = last_image_name
         result_path = last_image_name.replace('img', 'results')
     elif not img and not last_image_name:
+        # if no image upload and no last image
         last_image_name = None
         if html_lang == 'tch':
             error='沒有選擇圖片'
@@ -126,11 +137,13 @@ def post():
             error='Did not select image'
         return render_template(pixel_html_path, error=error)
     if img_file_name.split('.')[-1].lower() not in format_support:
+        # if file type is not supported
         if html_lang == 'tch':
             error = "不支持這個格式。"
         elif html_lang == 'en':
             error = 'Do not support this file format.'
         return render_template(pixel_html_path, error=error)
+        
     # get reference from page
     k = int(request.form['k'])
     scale = int(request.form['scale'])
@@ -156,6 +169,15 @@ def post():
         to_tw = bool(int(request.form['to_tw']))
     except:
         to_tw = False
+    try:
+        qrcode = bool(int(request.form['qr_code']))
+    except:
+        qrcode = False
+    if qrcode:
+        qrcode_content = request.values['qr_code_content']
+        print(qrcode_content)
+
+    # random file name
     img_name = hashlib.md5(str(dt.datetime.now()).encode('utf-8')).hexdigest()
 
     if img:
@@ -182,14 +204,19 @@ def post():
     else:
         last_image = img_path
 
-    if file_format in ['gif', 'GIF']:
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
-    elif file_format in ['mp4', 'avi', 'flv']:
+    if file_format in ['mp4', 'avi', 'flv']:
+        # for videoes
         return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
     else:
-        cv2.imwrite(result_path, img_res)
-        # check_image_by_path('static/results/', result_path)
-        # check_image_by_path('static/img/', img_path)
+        # for gif and image
+        if file_format in ['gif', 'GIF']:
+            pass
+        else:
+            cv2.imwrite(result_path, img_res)
+            # check_image_by_path('static/results/', result_path)
+            # check_image_by_path('static/img/', img_path)
+        if qrcode:
+            result_path = qr_code_process(result_path, qrcode_content)
         return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
 
 @app.errorhandler(413)
