@@ -188,8 +188,8 @@ def post():
         return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
     else:
         cv2.imwrite(result_path, img_res)
-        check_image_by_path('static/results/', result_path)
-        check_image_by_path('static/img/', img_path)
+        # check_image_by_path('static/results/', result_path)
+        # check_image_by_path('static/img/', img_path)
         return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
 
 @app.errorhandler(413)
