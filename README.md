@@ -123,7 +123,7 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 [![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
 
 # UI
-![UI](sample/UI_BW_en.png)
+![UI](sample/UI_dk_en.png)
 ## Image edit on web
 ### Before
 ![Before](sample/before.png)
