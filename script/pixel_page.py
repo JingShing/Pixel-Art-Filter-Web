@@ -12,23 +12,27 @@ pixel_html_pre_path = 'pixel'
 pixel_html_pro_path = '.html'
 html_lang = 'tch'
 def get_pixel_html_name():
+    # pixel_lang.html
     return pixel_html_pre_path + '_' + html_lang + pixel_html_pro_path
-
 pixel_html_path = get_pixel_html_name()
 static_path = 'static/'
 app = Flask(__name__)
+# file max size how many MB
 max_size_num = 2
+# max image length
 max_size_length = 2048
 config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False}
 app.config.update(config)
 
 def around_value(value, min_num, max_num):
+    # return value between min and max
     value = max(value, min_num)
     value = min(value, max_num)
     return value
 
 @app.route("/english",methods=['POST','GET'])
 def english():
+    # english to english
     global pixel_html_path, html_lang
     html_lang = 'en'
     pixel_html_path = get_pixel_html_name()
@@ -36,6 +40,7 @@ def english():
 
 @app.route("/traditional_chinese")
 def traditional_chinese():
+    # tch to tch
     global pixel_html_path, html_lang
     html_lang = 'tch'
     pixel_html_path = get_pixel_html_name()
@@ -47,20 +52,26 @@ def index():
 
 @app.route('/', methods=['POST'])
 def post():
-    img = request.files['image']
-    last_image_name = request.values['last_image']
-    format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
+    # language part
     language = request.values['language']
     global pixel_html_path, html_lang
     if language:
+        # if there is language set
         html_lang = language
     else:
         html_lang = 'en'
     pixel_html_path = get_pixel_html_name()
+
+    # image process part
+    img = request.files['image']
+    last_image_name = request.values['last_image']
+    format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
     if img:
+        # if it has image upload. Meaning it need to update new image.
         last_image_name = None
         img_file_name = img.filename
     elif '.' in last_image_name:
+        # if it has last img name
         if 'img' in last_image_name:
             pass
         else:
@@ -81,6 +92,7 @@ def post():
         elif html_lang == 'en':
             error = 'Do not support this file format.'
         return render_template(pixel_html_path, error=error)
+    # get reference from page
     k = int(request.form['k'])
     scale = int(request.form['scale'])
     blur = int(request.form['blur'])
@@ -88,6 +100,7 @@ def post():
     saturation = int(request.form['saturation'])
     contrast = int(request.form['contrast'])
     # avoid value broken
+    # using around value to control between min and max
     k = around_value(k, 2, 16)
     scale = around_value(scale, 1, 10)
     blur = around_value(blur, 0, 255)
@@ -95,6 +108,7 @@ def post():
     saturation = around_value(saturation, -255, 255)
     contrast = around_value(contrast, -255, 255)
 
+    # alpha and to_tw is check box so it need try and except
     try:
         alpha = bool(int(request.form['alpha']))
     except:
@@ -108,7 +122,6 @@ def post():
     if img:
         # if upload new img
         img_path = os.path.join(static_path+'img', img_name + os.path.splitext(img_file_name)[-1])
-        # result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img_file_name)[-1])
         img.save(img_path)
     # I move out to here to prevent error: not refreshing.
     result_path = os.path.join(static_path+'results', img_name + os.path.splitext(img_file_name)[-1])
