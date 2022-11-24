@@ -7,8 +7,12 @@ import hashlib
 import datetime as dt
 from settings import *
 from pixel_converter import *
+# hash tool
 from hash_delete_tool import *
+# for twitter
 from private_key import secret_key, api_key, api_secret
+import tweepy
+import random
 pixel_html_pre_path = 'pixel'
 pixel_html_pro_path = '.html'
 html_lang = 'tch'
@@ -30,6 +34,32 @@ config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False, 'SEC
 app.config.update(config)
 
 # for twitter
+@app.route('/twitter')
+def twitter():
+    auth = tweepy.OAuthHandler(api_key, api_secret)
+    return redirect(auth.get_authorization_url())
+@app.route('/callback', methods=['GET', 'POST'])
+def callback():
+    args = request.args
+    oauth_token = args['oauth_token']
+    oauth_verifier = args['oauth_verifier']
+    auth = tweepy.OAuthHandler(api_key, api_secret)
+    auth.request_token = {'oauth_token': oauth_token, 'oauth_token_secret': oauth_verifier}
+    auth.get_access_token(oauth_verifier)
+    user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
+    return user_tokens
+@app.route('/tweet')
+def tweet():
+    # You would read these values from the session
+    user_token = os.getenv('access-token')
+    user_token_secret = os.getenv('access-token-secret')
+    auth = tweepy.OAuthHandler(api_key, api_secret)
+    auth.set_access_token(user_token,user_token_secret)
+    api = tweepy.API(auth)
+    # Create a tweet - random() to not write same tweet twice
+    api.update_status(f"A Tweet from Flask - {random.random()}")
+ 
+    return "Tweet send with Flask"
 
 def around_value(value, min_num, max_num):
     # return value between min and max
