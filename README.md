@@ -23,6 +23,8 @@ If you want to install modules enter this command: ```pip install -r requirement
 > Pillow
 >
 > tqdm
+>
+> MyQR
 
 If you want to use please active: ```script/pixel_page.py```
 
@@ -305,6 +307,9 @@ You can click pic to watch vid.
  ## Ver1.8.8
  * Add hash tool to keep same image waste space.
   * more detailed can see [this github repo](https://github.com/JingShing-Python/Image-Hash-Detect-And-Delete).
+ ## Ver1.9
+ * working on twitter api
+ * Now can add content and generate qrcode image.
 </details>
 
 <details>
