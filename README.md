@@ -137,7 +137,7 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 ![After_vid](sample/video_edited.png)
 
 ## QR code generate supported now
-* ![QR_code](sample/QR_code.png)
+![QR_code](sample/QR_code.png)
 
 ## Video supported now
 You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ).
