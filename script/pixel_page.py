@@ -50,15 +50,11 @@ def callback():
     user_secret_token = auth.access_token_secret
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
-    token = user_token + ' ' + user_secret_token
-    tweet(token)
+    tweet(user_token=user_token, user_token_secret=user_secret_token)
 
 @app.route('/tweet')
-def tweet(token):
+def tweet(user_token, user_token_secret):
     # You would read these values from the session
-    token = token.split(' ')
-    user_token = token[0]
-    user_token_secret = token[-1]
     auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.set_access_token(user_token,user_token_secret)
     api = tweepy.API(auth)
