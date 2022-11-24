@@ -316,11 +316,9 @@ You can click pic to watch vid.
 <details>
 <summary>To do list</summary>
 
-- [ ] QR code feature
 - [ ] Custom Mode
 - [ ] kuwahara filter(Oil painting style)
 - [ ] Dark mode
-- [ ] Add hash detect
 - [ ] Add Download button
 - [ ] Add twitter api to auto post
  
@@ -328,9 +326,15 @@ You can click pic to watch vid.
 2022/11/16
 - [X] Same image recycle
 
+2022/11/20
+- [X] Add hash detect
+ 
 2022/11/23
 - [X] Remember set
 - [X] Multi language support
 - [X] Mouse hover hint
 
+ 2022/11/25
+- [X] QR code feature
+ 
 </details>
