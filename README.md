@@ -310,6 +310,7 @@ You can click pic to watch vid.
  ## Ver1.9
  * working on twitter api
  * Now can add content and generate qrcode image.
+  * ![QR_code](sample/QR_code.png)
 </details>
 
 <details>
