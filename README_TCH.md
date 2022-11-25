@@ -138,6 +138,8 @@
 ![After_vid](sample/video_edited.png)
 
 ## 現已支持 QR code 生成
+支持圖片和GIF生成，目前僅支持英文訊息和網址。
+ 
 ![QR_code](sample/QR_code.png)
 
 ## 現已支持影片格式
