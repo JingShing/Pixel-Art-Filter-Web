@@ -27,7 +27,6 @@ def check_image(folder_path, detect_file_name, hash_dict=dict()):
             file_path = folder_path + file_name
             if file_path in hash_dict:
                 hashed_image = hash_dict[file_path]
-                print('hashed_image')
             else:
                 try:
                     hashed_image = imagehash.average_hash(Image.open(file_path))
