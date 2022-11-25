@@ -61,6 +61,7 @@ def callback():
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
     tweet(user_token=user_token, user_token_secret=user_secret_token)
+    return render_template(pixel_html_path)
 
 @app.route('/tweet')
 def tweet(user_token, user_token_secret):
