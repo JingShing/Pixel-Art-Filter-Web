@@ -141,6 +141,8 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 ![After_vid](sample/video_edited.png)
 
 ## QR code generate supported now
+Support image and gif to generate QR code.
+
 ![QR_code](sample/QR_code.png)
 
 ## Video supported now
