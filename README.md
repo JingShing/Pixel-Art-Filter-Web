@@ -127,6 +127,11 @@ You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
 
 <details>
 <summary>Feature Summary</summary>
+ 
+## Auto tweet on Twitter
+ * ![autotweet](sample/autotweet.png)
+ * ![mytweet](sample/mytweet.png)
+
 
 ## Image edit on web
 ### Before
