@@ -9,7 +9,7 @@ def resource_path(relative):
 		absolute_path = os.path.join(relative)
 	return absolute_path
 
-def pixel_set_to_dict(k=2, scale=4, color=True, blur=0, erode=0, alpha=True, to_tw=False, dither=False, saturation=0, contrast=0):
+def pixel_set_to_dict(k=2, scale=4, color=True, blur=0, erode=0, alpha=True, to_tw=False, dither=False, saturation=0, contrast=0, save_name = None):
 	pixel_set_dict = {}
 	pixel_set_dict['bit'] = k
 	pixel_set_dict['pixel_size'] = scale
@@ -21,6 +21,7 @@ def pixel_set_to_dict(k=2, scale=4, color=True, blur=0, erode=0, alpha=True, to_
 	pixel_set_dict['dither'] = dither
 	pixel_set_dict['saturtion'] = saturation
 	pixel_set_dict['contrast'] = contrast
+	pixel_set_dict['save_name'] = save_name
 	return pixel_set_dict
 
 def pixel_set_dict_to_all_sets(pixel_set_dict):
@@ -34,7 +35,8 @@ def pixel_set_dict_to_all_sets(pixel_set_dict):
 	dither = pixel_set_dict['dither']
 	saturation = pixel_set_dict['saturtion']
 	contrast = pixel_set_dict['contrast']
-	return k, scale, color, blur, erode, alpha, to_tw, dither, saturation, contrast
+	save_name = pixel_set_dict['save_name']
+	return k, scale, color, blur, erode, alpha, to_tw, dither, saturation, contrast, save_name
 
 # pixel_set_dict['bit']
 # pixel_set_dict['pixel_size']

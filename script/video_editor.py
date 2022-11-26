@@ -4,6 +4,7 @@ import re
 from tqdm import tqdm
 
 def video_edit(path, set_dict):
+    save_name = set_dict['save_name']
     cap = cv2.VideoCapture(path)
 
     # fps = cap.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -33,7 +34,8 @@ def video_edit(path, set_dict):
 
     if fourcc:
         # video output
-        out = cv2.VideoWriter('static/results/' + file_name.split('\\')[-1] + '.' + file_format, fourcc, frame_fps, (frame_width,  frame_height))
+        # out = cv2.VideoWriter('static/results/' + file_name.split('\\')[-1] + '.' + file_format, fourcc, frame_fps, (frame_width,  frame_height))
+        out = cv2.VideoWriter(save_name, fourcc, frame_fps, (frame_width,  frame_height))
         # out = cv2.VideoWriter(file_name + '_edited' + '.' + file_format, fourcc, frame_fps, (frame_width,  frame_height), 0)
 
         while(cap.isOpened()):

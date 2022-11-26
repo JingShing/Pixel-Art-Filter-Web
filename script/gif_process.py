@@ -15,6 +15,7 @@ def gif_edit(path, set_dict):
     path.replace('\\', '/')
     file_name = re.split("/|\.", path)[-2]
     file_locat = path.split(file_name + '.gif')[0]
+    save_name = set_dict['save_name']
 
     img_list = []
     for frame in ImageSequence.Iterator(gif):
@@ -47,8 +48,9 @@ def gif_edit(path, set_dict):
         # add to output
 
     # save as gif
-    print('static/results' + file_name.split('\\')[-1] + ".gif")
-    output[0].save('static/results/' + file_name.split('\\')[-1] + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
+    print('static/results/' + file_name.split('\\')[-1] + ".gif")
+    # output[0].save('static/results/' + file_name.split('\\')[-1] + ".gif", save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
+    output[0].save(save_name, save_all=True, append_images=output[1:], duration=duration, loop=0, disposal=0)
     # gif output
     return img_list[0]
 

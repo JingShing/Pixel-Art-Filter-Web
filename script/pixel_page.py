@@ -215,7 +215,6 @@ def post():
         qrcode = False
     if qrcode:
         qrcode_content = request.values['qr_code_content']
-        print(qrcode_content)
 
     # twitter
     try:
@@ -244,7 +243,7 @@ def post():
                 img_pl.thumbnail((max_size_length, max_size_length), Image.ANTIALIAS)
                 img_pl.save(img_path)
     # commands
-    command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw, saturation=saturation, contrast=contrast)
+    command_dict = pixel_set_to_dict(k=k, scale=scale, blur=blur, erode=erode, alpha=alpha, to_tw=to_tw, saturation=saturation, contrast=contrast, save_name=result_path)
     img_res, colors = convert(img_path, command_dict)
 
     if '\\' in img_path:

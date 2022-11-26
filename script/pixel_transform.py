@@ -16,7 +16,7 @@ n4 = np.array([[0, 1, 0],
               np.uint8)
 
 def transform(src, set_dict):
-    k, scale, color, blur, erode, alpha, to_tw, dither, saturation, contrast = pixel_set_dict_to_all_sets(set_dict)
+    k, scale, color, blur, erode, alpha, to_tw, dither, saturation, contrast, save_name = pixel_set_dict_to_all_sets(set_dict)
     # if src is string means it's a path
     # else it is PIL image
     if type(src).__name__ == 'ndarray':
