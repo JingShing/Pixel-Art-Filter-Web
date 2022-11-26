@@ -50,7 +50,7 @@ def twitter():
     #     user_key = request.form['user_key']
     #     user_secret_key = request.form['user_secret_key']
     # except:
-    return redirect(auth.get_authorization_url(), request = request)
+    return redirect(auth.get_authorization_url())
 
     # orginal_image = request.form['original_img_src']
     # result_image = request.form['result_img_src']
@@ -60,7 +60,7 @@ def twitter():
     # tweet(user_token=user_key, user_token_secret=user_secret_key, filename=filename, status=status)
     # return redirect(url_for('index'))
 @app.route('/callback', methods=['GET', 'POST'])
-def callback(request):
+def callback():
     args = request.args
     oauth_token = args['oauth_token']
     oauth_verifier = args['oauth_verifier']
