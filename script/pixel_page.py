@@ -18,7 +18,6 @@ from hash_delete_tool import *
 # for twitter
 from private_key import secret_key, api_key, api_secret
 import tweepy
-import random
 
 # qrcode
 from qrcode_process import qr_code_process
@@ -195,6 +194,14 @@ def post():
         qrcode = bool(int(request.form['qr_code']))
     except:
         qrcode = False
+    try:
+        qrcode = bool(int(request.form['qr_code']))
+    except:
+        qrcode = False
+    try:
+        user_key = request.form['user_key']
+    except:
+        user_key = None
     if qrcode:
         qrcode_content = request.values['qr_code_content']
         print(qrcode_content)
@@ -228,7 +235,10 @@ def post():
 
     if file_format in ['mp4', 'avi', 'flv']:
         # for videoes
-        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
+        if user_key == None:
+            return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
+        else:
+            return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image, user_key=user_key)
     else:
         # for gif and image
         if file_format in ['gif', 'GIF']:
@@ -239,7 +249,12 @@ def post():
             # check_image_by_path('static/img/', img_path)
         if qrcode:
             result_path = qr_code_process(result_path, qrcode_content)
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
+
+        if user_key == None:
+            return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
+        else:
+            return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image,user_key=user_key)
+            
 
 @app.errorhandler(413)
 def error_file_size(e):
