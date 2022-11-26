@@ -358,4 +358,7 @@ You can click pic to watch vid.
  2022/11/25
 - [X] QR code feature
  
+ 2022/11/26
+- [X] Add twitter api to auto post
+ 
 </details>
