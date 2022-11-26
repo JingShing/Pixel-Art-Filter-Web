@@ -341,7 +341,6 @@ You can click pic to watch vid.
 - [ ] kuwahara filter(油畫風格)
 - [ ] 深夜模式
 - [ ] 新增下載按鈕
-- [ ] 新增調用twitter API 自動貼文
  
 ## 已完成
 2022/11/16
@@ -358,4 +357,7 @@ You can click pic to watch vid.
 2022/11/25
 - [X] QR code 功能
 
+2022/11/26
+- [X] 新增調用twitter API 自動貼文
+ 
 </details>
