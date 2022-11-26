@@ -47,12 +47,18 @@ app.config.update(config)
 @app.route('/twitter', methods=['GET', 'POST'])
 def twitter():
     auth = tweepy.OAuthHandler(api_key, api_secret)
-    return redirect(auth.get_authorization_url())
+    org = '&' + 'org=' + request.form['original_img_src']
+    result = '&' + 'result=' + request.form['result_img_src']
+    post = '&' + 'post=' + request.form['tweet_content']
+    return redirect(auth.get_authorization_url() + org + result + post)
 @app.route('/callback', methods=['GET', 'POST'])
 def callback():
     args = request.args
     oauth_token = args['oauth_token']
     oauth_verifier = args['oauth_verifier']
+    orginal_image = args['org']
+    result_image = args['result']
+    status = args['post']
     auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.request_token = {'oauth_token': oauth_token, 'oauth_token_secret': oauth_verifier}
     auth.get_access_token(oauth_verifier)
@@ -60,9 +66,6 @@ def callback():
     user_secret_token = auth.access_token_secret
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
-    orginal_image = request.form['original_img_src']
-    result_image = request.form['result_img_src']
-    status = request.form['tweet_content']
     filenames = [orginal_image, result_image]
 
     tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
