@@ -251,7 +251,7 @@ def post():
         if qrcode:
             result_path = qr_code_process(result_path, qrcode_content)
 
-            return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)            
+        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)            
 
 @app.errorhandler(413)
 def error_file_size(e):
