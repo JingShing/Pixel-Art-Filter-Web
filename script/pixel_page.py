@@ -54,7 +54,7 @@ def twitter():
 
     orginal_image = request.form['original_img_src']
     result_image = request.form['result_img_src']
-    status = request.form['tweet_content']
+    status = request.form['tweet_content'] + '#PixelArtFilterWeb'
     filenames = [orginal_image, result_image]
     tweet(user_token=user_key, user_token_secret=user_secret_key, filenames=filenames, status=status)
     # filename = result_image
