@@ -229,14 +229,14 @@
                     <img class="img-responsive" src="{{ org_img }}">
                 </div>
             </div>
-            <form action="./tweet" method="post" class="add-margin-top">
+            <form action="./twitter" method="post" class="add-margin-top">
                 <div class="form-group col-xs-12">
                     <textarea class="form-control" name="tweet_content" id="tweet_content" placeholder="這裡的字將附於推特的內文"></textarea>
                 </div>
-                <input type="hidden" name="original" value="{{ org_img }}">
-                <input type="hidden" name="result" value="{{ result }}">
+                <input type="hidden" name="original_img_src" value="{{ org_img }}">
+                <input type="hidden" name="result_img_src" value="{{ result }}">
                 <div class="form-group col-xs-12">
-                    <button type="submit" id="tweet_submit" class="btn btn-primary btn-block">
+                    <button type="submit" id="twitter_submit" class="btn btn-primary btn-block">
                         <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 分享結果到推特
                     </button>
                 </div>
