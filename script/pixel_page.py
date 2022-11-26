@@ -74,10 +74,8 @@ def tweet(user_token=None, user_token_secret=None, filename='static/sample/test.
     auth.set_access_token(user_token,user_token_secret)
     api = tweepy.API(auth)
     # Create a tweet - random() to not write same tweet twice
-    api.update_status(f"A Tweet from PixelArtFilterWeb - {random.random()}")
-    # api.update_status_with_media(filename=filename, status=status)
- 
-    return "Tweet send with Flask"
+    # api.update_status(f"A Tweet from PixelArtFilterWeb - {random.random()}")
+    api.update_status_with_media(filename=filename, status=status)
 
 def around_value(value, min_num, max_num):
     # return value between min and max
