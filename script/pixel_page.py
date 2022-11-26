@@ -60,22 +60,35 @@ def callback():
     user_secret_token = auth.access_token_secret
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
-    tweet(user_token=user_token, user_token_secret=user_secret_token)
+    orginal_image = request.form['original_img_src']
+    result_image = request.form['result_img_src']
+    status = request.form['tweet_content']
+    filenames = [orginal_image, result_image]
+
+    tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
     return redirect(url_for('index'))
     # return render_template(pixel_html_path)
 
 @app.route('/tweet')
-def tweet(user_token=None, user_token_secret=None, filename='static/sample/test.jpg', status='This message is from #PixelArtFilterWeb'):
+def tweet(user_token=None, user_token_secret=None, filenames=['static/sample/test.jpg'], status='This message is from #PixelArtFilterWeb'):
     if user_token == None or user_token_secret == None:
         user_token = os.getenv('access-token')
         user_token_secret = os.getenv('access-token-secret')
+
     # You would read these values from the session
     auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.set_access_token(user_token,user_token_secret)
     api = tweepy.API(auth)
-    # Create a tweet - random() to not write same tweet twice
     # api.update_status(f"A Tweet from PixelArtFilterWeb - {random.random()}")
-    api.update_status_with_media(filename=filename, status=status)
+    # api.update_status_with_media(filename=filename, status=status)
+
+    # Upload images and get media_ids
+    media_ids = []
+    for filename in filenames:
+        res = api.media_upload(filename)
+        media_ids.append(res.media_id)
+    # Tweet with multiple images
+    api.update_status(status=status, media_ids=media_ids)
 
 def around_value(value, min_num, max_num):
     # return value between min and max
