@@ -126,6 +126,11 @@
 <details>
 <summary>功能概要</summary>
 
+## 自動推文
+ * ![autotweet](sample/autotweet.png)
+ * ![mytweet](sample/mytweet.png)
+
+ 
 ## 圖片線上處理
 ### 處理前
 ![Before](sample/before.png)
@@ -322,6 +327,11 @@ You can click pic to watch vid.
  ## 版本1.9
  * 正在研究Twitter API
  * 增加 QR code 生成的功能，可以將訊息或網址貼增加到圖片中
+ ## 版本1.9.1
+ * 現在可以自動在推特推文了
+  * ![autotweet](sample/autotweet.png)
+  * ![mytweet](sample/mytweet.png)
+
 </details>
 
 <details>
