@@ -331,6 +331,8 @@ You can click pic to watch vid.
  * 現在可以自動在推特推文了
   * ![autotweet](sample/autotweet.png)
   * ![mytweet](sample/mytweet.png)
+ ## 版本1.9.2
+ * 修復 GIF 和 影片 無法重複使用的錯誤
 
 </details>
 
