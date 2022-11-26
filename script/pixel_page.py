@@ -46,21 +46,21 @@ app.config.update(config)
 @app.route('/twitter', methods=['GET', 'POST'])
 def twitter():
     auth = tweepy.OAuthHandler(api_key, api_secret)
-    try:
-        user_key = request.form['user_key']
-        user_secret_key = request.form['user_secret_key']
-    except:
-        return redirect(auth.get_authorization_url())
+    # try:
+    #     user_key = request.form['user_key']
+    #     user_secret_key = request.form['user_secret_key']
+    # except:
+    return redirect(auth.get_authorization_url(), request = request)
 
-    orginal_image = request.form['original_img_src']
-    result_image = request.form['result_img_src']
-    status = request.form['tweet_content']
-    # filenames = [orginal_image, result_image]
-    filename = result_image
-    tweet(user_token=user_key, user_token_secret=user_secret_key, filename=filename, status=status)
-    return redirect(url_for('index'))
+    # orginal_image = request.form['original_img_src']
+    # result_image = request.form['result_img_src']
+    # status = request.form['tweet_content']
+    # # filenames = [orginal_image, result_image]
+    # filename = result_image
+    # tweet(user_token=user_key, user_token_secret=user_secret_key, filename=filename, status=status)
+    # return redirect(url_for('index'))
 @app.route('/callback', methods=['GET', 'POST'])
-def callback():
+def callback(request):
     args = request.args
     oauth_token = args['oauth_token']
     oauth_verifier = args['oauth_verifier']
@@ -72,7 +72,14 @@ def callback():
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
 
-    return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
+    # return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
+    orginal_image = request.form['original_img_src']
+    result_image = request.form['result_img_src']
+    status = request.form['tweet_content']
+    # filenames = [orginal_image, result_image]
+    filename = result_image
+    tweet(user_token=user_token, user_token_secret=user_secret_token, filename=filename, status=status)
+    return redirect(url_for('index'))
 
 @app.route('/tweet')
 def tweet(user_token=None, user_token_secret=None, filename='static/sample/test.jpg', status='This message is from #PixelArtFilterWeb'):
@@ -199,10 +206,6 @@ def post():
         qrcode = bool(int(request.form['qr_code']))
     except:
         qrcode = False
-    try:
-        user_key = request.form['user_key2']
-    except:
-        user_key = None
     if qrcode:
         qrcode_content = request.values['qr_code_content']
         print(qrcode_content)
@@ -236,10 +239,7 @@ def post():
 
     if file_format in ['mp4', 'avi', 'flv']:
         # for videoes
-        if user_key == None:
-            return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
-        else:
-            return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image, user_key=user_key)
+        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
     else:
         # for gif and image
         if file_format in ['gif', 'GIF']:
@@ -251,11 +251,7 @@ def post():
         if qrcode:
             result_path = qr_code_process(result_path, qrcode_content)
 
-        if user_key == None:
-            return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
-        else:
-            return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image,user_key=user_key)
-            
+            return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image)            
 
 @app.errorhandler(413)
 def error_file_size(e):
