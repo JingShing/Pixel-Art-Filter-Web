@@ -66,8 +66,9 @@ def callback():
 
 @app.route('/tweet')
 def tweet(user_token=None, user_token_secret=None, filename='static/sample/test.jpg', status='This message is from #PixelArtFilterWeb'):
-    user_token = os.getenv('access-token')
-    user_token_secret = os.getenv('access-token-secret')
+    if user_token == None or user_token_secret == None:
+        user_token = os.getenv('access-token')
+        user_token_secret = os.getenv('access-token-secret')
     # You would read these values from the session
     auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.set_access_token(user_token,user_token_secret)
