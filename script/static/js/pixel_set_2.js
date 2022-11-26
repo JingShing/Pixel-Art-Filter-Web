@@ -9,13 +9,13 @@ function save_pixel_set_to_local_storage(){
 }
 function load_pixel_set_to_local_storage(){
     for(let i = 0;i<pixel_set_vars.length;i++)if(localStorage.getItem(pixel_set_vars[i]))document.getElementById(pixel_set_vars[i]).value=localStorage.getItem(pixel_set_vars[i])
+    for(let i = 0;i<session_set.length;i++)if(localStorage.getItem(session_set[i]))document.getElementById(session_set[i]).value=localStorage.getItem(session_set[i])
     for(let i = 0;i<pixel_checkbox.length;i++){
         if(localStorage.getItem(pixel_checkbox[i])=='true')document.getElementById(pixel_checkbox[i]).checked=localStorage.getItem(pixel_checkbox[i])
         else document.getElementById(pixel_checkbox[i]).removeAttribute("checked");
     }
     qr_code_enable();
     // for(let i = 0;i<session_set.length;i++)document.getElementById(session_set[i]).value = sessionStorage.getItem(session_set[i]);
-    for(let i = 0;i<session_set.length;i++)document.getElementById(session_set[i]).value = localStorage.getItem(session_set[i]);
 }
 function qr_code_enable(){
     if(document.getElementById('qr_code').checked==true){
