@@ -50,16 +50,16 @@ def twitter():
     #     user_key = request.form['user_key']
     #     user_secret_key = request.form['user_secret_key']
     # except:
-    user_token, user_secret_token = redirect(auth.get_authorization_url())
+    return redirect(auth.get_authorization_url())
 
-    orginal_image = request.form['original_img_src']
-    result_image = request.form['result_img_src']
-    status = request.form['tweet_content']
-    filenames = [orginal_image, result_image]
+    # orginal_image = request.form['original_img_src']
+    # result_image = request.form['result_img_src']
+    # status = request.form['tweet_content']
+    # filenames = [orginal_image, result_image]
     # filename = result_image
     # tweet(user_token=user_key, user_token_secret=user_secret_key, filename=filename, status=status)
-    tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
-    return redirect(url_for('index'))
+    # tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
+    # return redirect(url_for('index'))
 
 @app.route('/callback', methods=['GET', 'POST'])
 def callback():
@@ -83,9 +83,9 @@ def callback():
     filename = 'static/sample/test.jpg'
     filenames = ['static/sample/test.jpg', 'static/sample/test.png']
     status = 'This message is from #PixelArtFilterWeb'
-    # tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
-    # return redirect(url_for('index'))
-    return user_token, user_secret_token
+    tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
+    return redirect(url_for('index'))
+    # return user_token, user_secret_token
 
 @app.route('/tweet')
 def tweet(user_token=None, user_token_secret=None, filenames=['static/sample/test.jpg'], status='This message is from #PixelArtFilterWeb'):
