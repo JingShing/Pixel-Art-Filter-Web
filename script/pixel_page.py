@@ -199,7 +199,7 @@ def post():
     except:
         qrcode = False
     try:
-        user_key = request.form['user_key']
+        user_key = request.form['user_key2']
     except:
         user_key = None
     if qrcode:
