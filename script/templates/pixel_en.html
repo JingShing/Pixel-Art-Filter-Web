@@ -231,29 +231,26 @@
                     <img class="img-responsive" src="{{ org_img }}">
                 </div>
             </div>
-            {% if user_key %}
             <form action="./twitter" method="post" class="add-margin-top">
+                {% if user_key %}
                 <div class="form-group col-xs-12">
                     <textarea class="form-control" name="tweet_content" id="tweet_content" placeholder="Text in this box will attach to the tweet content."></textarea>
                 </div>
-                <input type="hidden" id = "original_img_src" name="original_img_src" value="{{ org_img }}">
-                <input type="hidden" id = "result_img_src" name="result_img_src" value="{{ result }}">
-                <input type="hidden" id = "user_key" name="user_key" value="{{ user_key }}">
-                <input type="hidden" id = "user_secret_key" name="user_secret_key" value="{{ user_secret_key }}">
                 <div class="form-group col-xs-12">
                     <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
                         <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Share result to twitter
                     </button>
                 </div>
+                {% else %}
+                <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
+                    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Press to login twitter to autotweet
+                </button>
+                {% endif %}
+                <input type="hidden" id = "user_key" name="user_key" value="{{ user_key }}">
+                <input type="hidden" id = "user_secret_key" name="user_secret_key" value="{{ user_secret_key }}">
+                <input type="hidden" id = "result_img_src" name="result_img_src" value="{{ vid_result }}">
+                <input type="hidden" id = "original_img_src" name="original_img_src" value="{{ org_img }}">
             </form>
-            {% else %}
-            <form action="./twitter" method="post" class="add-margin-top">
-                    <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
-                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Press to login twitter to autotweet
-                    </button>
-                </div>
-            </form>
-            {% endif %}
         </div>
         {% elif vid_result %}
         <div class="col-md-8 add-margin-top">
@@ -280,29 +277,26 @@
                     <video src="{{ org_img }}" controls="controls"></video>
                 </div>
             </div>
-            {% if user_key %}
             <form action="./twitter" method="post" class="add-margin-top">
+                {% if user_key %}
                 <div class="form-group col-xs-12">
                     <textarea class="form-control" name="tweet_content" id="tweet_content" placeholder="Text in this box will attach to the tweet content."></textarea>
                 </div>
-                <input type="hidden" id = "original_img_src" name="original_img_src" value="{{ org_img }}">
-                <input type="hidden" id = "result_img_src" name="result_img_src" value="{{ vid_result }}">
-                <input type="hidden" id = "user_key" name="user_key" value="{{ user_key }}">
-                <input type="hidden" id = "user_secret_key" name="user_secret_key" value="{{ user_secret_key }}">
                 <div class="form-group col-xs-12">
                     <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
                         <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Share result to twitter
                     </button>
                 </div>
+                {% else %}
+                <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
+                    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Press to login twitter to autotweet
+                </button>
+                {% endif %}
+                <input type="hidden" id = "user_key" name="user_key" value="{{ user_key }}">
+                <input type="hidden" id = "user_secret_key" name="user_secret_key" value="{{ user_secret_key }}">
+                <input type="hidden" id = "result_img_src" name="result_img_src" value="{{ vid_result }}">
+                <input type="hidden" id = "original_img_src" name="original_img_src" value="{{ org_img }}">
             </form>
-            {% else %}
-            <form action="./twitter" method="post" class="add-margin-top">
-                    <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
-                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Press to login twitter to autotweet
-                    </button>
-                </div>
-            </form>
-            {% endif %}
         </div>
         {% else %}
         <div class="col-md-6">
