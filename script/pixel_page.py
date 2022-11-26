@@ -59,7 +59,7 @@ def twitter():
     tweet(user_token=user_key, user_token_secret=user_secret_key, filenames=filenames, status=status)
     # filename = result_image
     # tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
-    return redirect(url_for('index'), user_key=user_key,  user_secret_key=user_secret_key)
+    return redirect(url_for('index'))
 
 @app.route('/callback', methods=['GET', 'POST'])
 def callback():
