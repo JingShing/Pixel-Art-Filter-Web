@@ -44,7 +44,7 @@ config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False, 'SEC
 app.config.update(config)
 
 # for twitter
-@app.route('/twitter')
+@app.route('/twitter', methods=['GET', 'POST'])
 def twitter():
     auth = tweepy.OAuthHandler(api_key, api_secret)
     return redirect(auth.get_authorization_url())
