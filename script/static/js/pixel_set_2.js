@@ -2,10 +2,10 @@ const pixel_set_vars = ["k","scale","blur","erode","saturation","contrast","qr_c
 const session_set = ["user_key", "user_secret_key", "user_key2", "user_secret_key2"]
 const pixel_checkbox = ["alpha", "to_tw", "qr_code"]
 function save_pixel_set_to_local_storage(){
-    for(let i = 0;i<pixel_set_vars.length;i++)localStorage.setItem(pixel_set_vars[i], document.getElementById(pixel_set_vars[i]).value);
+    for(let i = 0;i<pixel_set_vars.length;i++)if(document.getElementById(pixel_set_vars[i]).value)localStorage.setItem(pixel_set_vars[i], document.getElementById(pixel_set_vars[i]).value);
     for(let i = 0;i<pixel_checkbox.length;i++)localStorage.setItem(pixel_checkbox[i], document.getElementById(pixel_checkbox[i]).checked);
     // for(let i = 0;i<session_set.length;i++)sessionStorage.setItem(session_set[i], document.getElementById(session_set[i]).value);
-    for(let i = 0;i<session_set.length;i++)localStorage.setItem(session_set[i], document.getElementById(session_set[i]).value);
+    for(let i = 0;i<session_set.length;i++)if(document.getElementById(session_set[i]).value)localStorage.setItem(session_set[i], document.getElementById(session_set[i]).value);
 }
 function load_pixel_set_to_local_storage(){
     for(let i = 0;i<pixel_set_vars.length;i++)if(localStorage.getItem(pixel_set_vars[i]))document.getElementById(pixel_set_vars[i]).value=localStorage.getItem(pixel_set_vars[i])
