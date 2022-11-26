@@ -48,8 +48,8 @@ app.config.update(config)
 def twitter():
     auth = tweepy.OAuthHandler(api_key, api_secret)
     try:
-        user_key = request.form['original_img_src']
-        user_secret_key = request.form['original_img_src']
+        user_key = request.form['user_key']
+        user_secret_key = request.form['user_secret_key']
     except:
         return redirect(auth.get_authorization_url())
 
