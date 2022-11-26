@@ -73,11 +73,13 @@ def callback():
     # return user_tokens
 
     # return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
-    orginal_image = request.form['original_img_src']
-    result_image = request.form['result_img_src']
-    status = request.form['tweet_content']
+    # orginal_image = request.form['original_img_src']
+    # result_image = request.form['result_img_src']
+    # status = request.form['tweet_content']
     # filenames = [orginal_image, result_image]
-    filename = result_image
+    # filename = result_image
+    filename = 'static/sample/test.jpg'
+    status = 'This message is from #PixelArtFilterWeb'
     tweet(user_token=user_token, user_token_secret=user_secret_token, filename=filename, status=status)
     return redirect(url_for('index'))
 
