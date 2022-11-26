@@ -256,7 +256,7 @@ def post():
 
     if file_format in ['mp4', 'avi', 'flv']:
         # for videoes
-        return render_template(pixel_html_path, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image, user_key=user_key,  user_secret_key=user_secret_key)
+        return render_template(pixel_html_path, user_key=user_key,  user_secret_key=user_secret_key, org_img=img_path, vid_result=result_path, colors=colors, last_image=last_image)
     else:
         # for gif and image
         if file_format in ['gif', 'GIF']:
@@ -268,7 +268,7 @@ def post():
         if qrcode:
             result_path = qr_code_process(result_path, qrcode_content)
 
-        return render_template(pixel_html_path, org_img=img_path, result=result_path, colors=colors, last_image=last_image, user_key=user_key,  user_secret_key=user_secret_key)
+        return render_template(pixel_html_path, user_key=user_key,  user_secret_key=user_secret_key, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
 
 @app.errorhandler(413)
 def error_file_size(e):
