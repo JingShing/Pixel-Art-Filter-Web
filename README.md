@@ -323,6 +323,10 @@ You can click pic to watch vid.
  * working on twitter api
  * Now can add content and generate qrcode image.
   * ![QR_code](sample/QR_code.png)
+ ## ver1.9.1
+ * Now can auto tweet.
+  * ![autotweet](sample/autotweet.png)
+  * ![mytweet](sample/mytweet.png)
 </details>
 
 <details>
