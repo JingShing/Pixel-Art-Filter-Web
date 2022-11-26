@@ -72,7 +72,7 @@ def callback():
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
 
-    return render_template(pixel_html_path, user_token, user_secret_token)
+    return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
 
 @app.route('/tweet')
 def tweet(user_token=None, user_token_secret=None, filenames=['static/sample/test.jpg'], status='This message is from #PixelArtFilterWeb'):
