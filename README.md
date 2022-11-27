@@ -128,7 +128,7 @@ Because it need to use H264 to encode video to display video on web browser. And
 
 </details>
 
-## [Usage Video](https://www.youtube.com/watch?v=cJNWTVEHWV8)
+## [Introduction Video](https://www.youtube.com/watch?v=cJNWTVEHWV8)
 You can click pic below to [watch vid](https://youtu.be/cJNWTVEHWV8).
 [![Usage](https://img.youtube.com/vi/cJNWTVEHWV8/maxresdefault.jpg)](https://youtu.be/cJNWTVEHWV8)
 
