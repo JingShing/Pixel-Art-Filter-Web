@@ -126,8 +126,9 @@ api_secret = "你的_api_secret_key"
 
 </details>
 
-可以點擊下方圖片[觀看使用影片](https://youtu.be/HpTbwjZv2y0)。
-[![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+## [介紹影片](https://www.youtube.com/watch?v=cJNWTVEHWV8)
+可以點擊下方圖片[觀看介紹影片](https://youtu.be/cJNWTVEHWV8).
+[![Usage](https://img.youtube.com/vi/cJNWTVEHWV8/maxresdefault.jpg)](https://youtu.be/cJNWTVEHWV8)
 
 # UI
 ![UI](sample/UI_dk_tch.png)
