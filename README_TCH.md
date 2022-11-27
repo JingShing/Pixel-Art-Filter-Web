@@ -8,6 +8,16 @@
 # [我的像素畫風濾鏡網站](https://pixel.jingshing.com/traditional_chinese) 已經上線啦
 你可以 [點擊這個連結進入我的像素畫風濾鏡的網站](https://pixel.jingshing.com/traditional_chinese)。
 
+### 這個專案缺少了一個 .py 檔案，需要自己創建：```private_key.py```
+因為這個檔案需要自己的密鑰，所以沒有提供。
+
+需要自行創建檔案，並把這些變量放到裡面 secret_key, api_key, api_secret ，類似底下格式：
+```py
+secret_key = "你的_secret_key"
+api_key = "你的_api_key"
+api_secret = "你的_api_secret_key"
+```
+
 ## Usage用法
 如果需要安裝套件，可以使用這個指令 : ```pip install -r requirements.txt```.
 > 需要的模塊(如果requirement.txt無法安裝):
