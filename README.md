@@ -128,9 +128,9 @@ Because it need to use H264 to encode video to display video on web browser. And
 
 </details>
 
-
-You can click pic below to [watch vid](https://youtu.be/HpTbwjZv2y0).
-[![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+## [Usage Video](https://www.youtube.com/watch?v=cJNWTVEHWV8)
+You can click pic below to [watch vid](https://youtu.be/cJNWTVEHWV8).
+[![Usage](https://img.youtube.com/vi/cJNWTVEHWV8/maxresdefault.jpg)](https://youtu.be/cJNWTVEHWV8)
 
 # UI
 ![UI](sample/UI_dk_en.png)
@@ -288,7 +288,7 @@ You can click the image below to watch [the video](https://youtu.be/W8HxlqgLQnQ)
 
 ## Usage
 You can click pic to watch vid.
-[![Usage](https://img.youtube.com/vi/HpTbwjZv2y0/maxresdefault.jpg)](https://youtu.be/HpTbwjZv2y0)
+[![Usage](https://img.youtube.com/vi/cJNWTVEHWV8/maxresdefault.jpg)](https://youtu.be/cJNWTVEHWV8)
 
 ## Video supported now
 [![Video](https://i0.hdslb.com/bfs/archive/7220c2155a7e8550a7766eafead297b43cf93426.jpg@640w_400h_1c_!web-space-index-myvideo.webp)](https://youtu.be/W8HxlqgLQnQ)
