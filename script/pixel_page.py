@@ -61,8 +61,10 @@ def twitter():
     # tweet(user_token=user_token, user_token_secret=user_secret_token, filenames=filenames, status=status)
     return redirect(url_for('index'))
 
+# if user choose to give auth then will get callback
 @app.route('/callback', methods=['GET', 'POST'])
 def callback():
+    # get token or keys from url args
     args = request.args
     oauth_token = args['oauth_token']
     oauth_verifier = args['oauth_verifier']
@@ -75,6 +77,9 @@ def callback():
     # return user_tokens
 
     return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
+
+    # this area is for debugging and testing twitter api
+
     # orginal_image = request.form['original_img_src']
     # result_image = request.form['result_img_src']
     # status = request.form['tweet_content']
@@ -87,6 +92,7 @@ def callback():
     # return redirect(url_for('index'))
     # return user_token, user_secret_token
 
+# you can't only use this route to tweet it need to get auth first
 @app.route('/tweet')
 def tweet(user_token=None, user_token_secret=None, filenames=['static/sample/test.jpg'], status='This message is from #PixelArtFilterWeb'):
     if user_token == None or user_token_secret == None:
@@ -109,12 +115,13 @@ def tweet(user_token=None, user_token_secret=None, filenames=['static/sample/tes
     # Tweet with multiple images
     api.update_status(status=status, media_ids=media_ids)
 
+# return value between min and max
 def around_value(value, min_num, max_num):
-    # return value between min and max
     value = max(value, min_num)
     value = min(value, max_num)
     return value
 
+# change to 'en' lang
 @app.route("/english",methods=['POST','GET'])
 def english():
     # english to english
@@ -123,6 +130,7 @@ def english():
     pixel_html_path = get_pixel_html_name()
     return render_template(pixel_html_path)
 
+# change to 'zh' lang
 @app.route("/traditional_chinese")
 def traditional_chinese():
     # tch to tch
@@ -131,10 +139,12 @@ def traditional_chinese():
     pixel_html_path = get_pixel_html_name()
     return render_template(pixel_html_path)
 
+# index get
 @app.route('/', methods=['GET'])
 def index():
     return render_template(pixel_html_path, language=html_lang)
 
+# index post
 @app.route('/', methods=['POST'])
 def post():
     # language part
@@ -216,7 +226,7 @@ def post():
     if qrcode:
         qrcode_content = request.values['qr_code_content']
 
-    # twitter
+    # twitter key
     try:
         user_key = request.form['user_key2']
     except:
@@ -269,6 +279,7 @@ def post():
 
         return render_template(pixel_html_path, user_key=user_key,  user_secret_key=user_secret_key, org_img=img_path, result=result_path, colors=colors, last_image=last_image)
 
+# page 413 error
 @app.errorhandler(413)
 def error_file_size(e):
     if html_lang == 'tch':
@@ -277,6 +288,7 @@ def error_file_size(e):
         error = 'File size is over restriction. Maxinum upload size is ' + str(max_size_num) + 'MB.' + '  If want to edit size more than' + str(max_size_num) + 'MB file. Please see local version: https://github.com/JingShing-Tools/Pixel-Art-transform-in-python'
     return render_template(pixel_html_path, error=error), 413
 
+# page 404 error
 @app.errorhandler(404)
 def not_found(e):
     error = 'Not found'
