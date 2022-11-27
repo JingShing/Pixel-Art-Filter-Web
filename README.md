@@ -10,6 +10,16 @@ This tool can render image, gif and video into pixel art style.
 # [My Pixel Art Filter Website](https://pixel.jingshing.com/english) is online now
 You can [click this to enter my Pixel Art Filter Website](https://pixel.jingshing.com/english).
 
+### The repo is missing a .py file called ```private_key.py```
+Because It is a file to provide private key.
+
+You need to create one and put secret_key, api_key, api_secret in it Like:
+```py
+secret_key = "your_secret_key"
+api_key = "your_api_key"
+api_secret = "your_api_secret_key"
+```
+
 ## Usage
 If you want to install modules enter this command: ```pip install -r requirements.txt```
 > module you need(If you can't install requirement.txt):
