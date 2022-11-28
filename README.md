@@ -355,6 +355,7 @@ You can click pic to watch vid.
 - [ ] Dark mode
 - [ ] Add Download button
 - [ ] Add twitter api to auto post
+- [ ] Need new dither method(more fast more efficien and more perfect)
  
 ## Done
 2022/11/16
