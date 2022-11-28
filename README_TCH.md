@@ -354,6 +354,7 @@ You can click pic to watch vid.
 - [ ] kuwahara filter(油畫風格)
 - [ ] 深夜模式
 - [ ] 新增下載按鈕
+- [ ] 需要新的 dither 方法(更快、更強)
  
 ## 已完成
 2022/11/16
