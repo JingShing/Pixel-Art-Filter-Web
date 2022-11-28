@@ -28,11 +28,10 @@ def getdirsize(dir):
     return size
 
 def backup(size):
-    if getdirsize('static/img/') > size:
+    if getdirsize('static/img/') > size or getdirsize('static/results/') > size:
         zip_file_backup('static/backups/', 'static/img/', 'img')
-        remove_all_folder_file('static/img/')
-    if getdirsize('static/results/') > size:
         zip_file_backup('static/backups/', 'static/results/', 'results')
+        remove_all_folder_file('static/img/')
         remove_all_folder_file('static/results/')
 
 backup(size=100*1024*1024)
