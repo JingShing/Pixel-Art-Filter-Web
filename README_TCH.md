@@ -356,7 +356,7 @@ You can click pic to watch vid.
 - [ ] 深夜模式
 - [ ] 新增下載按鈕
 - [ ] 需要新的 dither 方法(更快、更強)
-- [ ] 載入 GIF
+- [ ] 載入用 GIF
 - [ ] 影像去背
 - [ ] 從 twitter hashtag 統計圖片做成圖庫
  
