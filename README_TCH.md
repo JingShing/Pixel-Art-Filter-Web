@@ -344,6 +344,7 @@ You can click pic to watch vid.
   * ![mytweet](sample/mytweet.png)
  ## 版本1.9.2
  * 修復 GIF 和 影片 無法重複使用的錯誤
+ * 現在支持 webp 檔案
 
 </details>
 
