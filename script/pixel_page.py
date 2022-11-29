@@ -160,7 +160,7 @@ def post():
     # image process part
     img = request.files['image']
     last_image_name = request.values['last_image']
-    format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg']
+    format_support = ['mp4', 'avi', 'gif','png','jpg','jpeg', 'webp']
     if img:
         # if it has image upload. Meaning it need to update new image.
         last_image_name = None
