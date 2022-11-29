@@ -358,6 +358,8 @@ You can click pic to watch vid.
 - [ ] Add twitter api to auto post
 - [ ] Need new dither method(more fast more efficien and more perfect)
 - [ ] Loading GIF
+- [ ] Image Matting
+- [ ] gallery from twitter hashtag
  
 ## Done
 2022/11/16
