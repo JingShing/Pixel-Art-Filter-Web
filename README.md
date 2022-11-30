@@ -14,6 +14,8 @@ You can [click this to enter my Pixel Art Filter Website](https://pixel.jingshin
 Because It is a file to provide private key.
 
 You need to create one and put secret_key, api_key, api_secret in it Like:
+
+You can see more detailed with [this repo](https://github.com/JingShing/Twitter-API-Python/blob/main/scripts/private_key.py)
 ```py
 secret_key = "your_secret_key"
 api_key = "your_api_key"
