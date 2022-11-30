@@ -12,6 +12,8 @@
 因為這個檔案需要自己的密鑰，所以沒有提供。
 
 需要自行創建檔案，並把這些變量放到裡面 secret_key, api_key, api_secret ，類似底下格式：
+
+可以在 [這篇 repo](https://github.com/JingShing/Twitter-API-Python/blob/main/scripts/private_key.py) 看到更多細節。
 ```py
 secret_key = "你的_secret_key"
 api_key = "你的_api_key"
@@ -127,7 +129,8 @@ api_secret = "你的_api_secret_key"
 </details>
 
 ## [介紹影片](https://www.youtube.com/watch?v=cJNWTVEHWV8)
-可以點擊下方圖片[觀看介紹影片](https://youtu.be/cJNWTVEHWV8).
+可以點擊下方圖片[觀看介紹影片](https://youtu.be/cJNWTVEHWV8)：
+
 [![Usage](https://img.youtube.com/vi/cJNWTVEHWV8/maxresdefault.jpg)](https://youtu.be/cJNWTVEHWV8)
 
 # UI
