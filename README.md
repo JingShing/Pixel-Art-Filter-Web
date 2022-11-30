@@ -361,7 +361,6 @@ You can click pic to watch vid.
 - [ ] Need new dither method(more fast more efficien and more perfect)
 - [ ] Loading GIF
 - [ ] Image Matting
-- [ ] gallery from twitter hashtag
  
 ## Done
 2022/11/16
@@ -381,4 +380,7 @@ You can click pic to watch vid.
  2022/11/26
 - [X] Add twitter api to auto post
  
+ 2022/11/30
+- [X] gallery from twitter hashtag
+
 </details>
