@@ -347,6 +347,8 @@ You can click pic to watch vid.
  ## ver1.9.2
  * Fixed gif and video recycle using method
  * Now support webp file
+ ## ver1.9.3
+ * Add gallery page. It will collect #PixelArtFilterWeb post from twitter and add into it.
  
 </details>
 
