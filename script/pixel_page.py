@@ -42,6 +42,11 @@ app = Flask(__name__)
 config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False, 'SECRET_KEY':secret_key}
 app.config.update(config)
 
+# for gallery
+@app.route('/gallery', methods=['GET', 'POST'])
+def gallery():
+    return render_template('gallery.html')
+
 # for twitter
 @app.route('/twitter', methods=['GET', 'POST'])
 def twitter():
