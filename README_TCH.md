@@ -348,6 +348,8 @@ You can click pic to watch vid.
  ## 版本1.9.2
  * 修復 GIF 和 影片 無法重複使用的錯誤
  * 現在支持 webp 檔案
+ ## 版本1.9.3
+ * 新增圖庫頁面，定期將 #PixelArtFilterWeb 的貼文加入其中
 
 </details>
 
@@ -361,7 +363,6 @@ You can click pic to watch vid.
 - [ ] 需要新的 dither 方法(更快、更強)
 - [ ] 載入用 GIF
 - [ ] 影像去背
-- [ ] 從 twitter hashtag 統計圖片做成圖庫
  
 ## 已完成
 2022/11/16
@@ -380,5 +381,8 @@ You can click pic to watch vid.
 
 2022/11/26
 - [X] 新增調用twitter API 自動貼文
+ 
+ 2022/11/30
+- [X] 從 twitter hashtag 統計圖片做成圖庫
  
 </details>
