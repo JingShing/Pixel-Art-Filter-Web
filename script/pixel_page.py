@@ -16,7 +16,8 @@ from pixel_converter import *
 from hash_delete_tool import *
 
 # for twitter
-from private_key import secret_key, api_key, api_secret
+from private_key import *
+# private_key: secret_key, api_key, api_secret
 import tweepy
 
 # qrcode
