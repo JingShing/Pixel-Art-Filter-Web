@@ -107,22 +107,24 @@ def tweet(user_token=None, user_token_secret=None, filenames=['static/sample/tes
 
     # api.update_status(f"A Tweet from PixelArtFilterWeb - {random.random()}")
     # You would read these values from the session
-    try:
-        auth = tweepy.OAuthHandler(api_key, api_secret)
-        auth.set_access_token(user_token,user_token_secret)
-        api = tweepy.API(auth)
+    
+    # try:
+    auth = tweepy.OAuthHandler(api_key, api_secret)
+    auth.set_access_token(user_token,user_token_secret)
+    api = tweepy.API(auth)
 
-        # api.update_status_with_media(filename=filename, status=status)
+    # api.update_status_with_media(filename=filename, status=status)
 
-        # Upload images and get media_ids
-        media_ids = []
-        for filename in filenames:
-            res = api.media_upload(filename)
-            media_ids.append(res.media_id)
-        # Tweet with multiple images
-        api.update_status(status=status, media_ids=media_ids)
-    except:
-        return render_template(pixel_html_path, user_key = '', user_secret_key='')
+    # Upload images and get media_ids
+    media_ids = []
+    for filename in filenames:
+        res = api.media_upload(filename)
+        media_ids.append(res.media_id)
+    # Tweet with multiple images
+    api.update_status(status=status, media_ids=media_ids)
+
+    # except:
+        # return render_template(pixel_html_path, user_key = '', user_secret_key='')
 
 # return value between min and max
 def around_value(value, min_num, max_num):
