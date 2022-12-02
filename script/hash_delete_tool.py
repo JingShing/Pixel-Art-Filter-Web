@@ -2,8 +2,10 @@ import os
 from PIL import Image
 import imagehash
 
+# all format hash check
+check_file_format = ['png', 'jpg', 'webp']
+
 def check_image_by_path(folder_path, detect_file_path):
-    check_file_format = ['png', 'jpg']
     detect_file = detect_file_path
     detect_file_name = detect_file.split('\\')[-1].split('//')[-1]
     detect_file_hash = imagehash.average_hash(Image.open(detect_file))
@@ -18,7 +20,6 @@ def check_image_by_path(folder_path, detect_file_path):
                 print('removed: ' + folder_path + file_name)
 
 def check_image(folder_path, detect_file_name, hash_dict=dict()):
-    check_file_format = ['png', 'jpg']
     detect_file = folder_path + detect_file_name
     detect_file_hash = imagehash.average_hash(Image.open(detect_file))
     hash_dict[detect_file]=detect_file_hash
@@ -40,7 +41,6 @@ def check_image(folder_path, detect_file_name, hash_dict=dict()):
 
 def check_all_image(folder_path):
     hash_dict = {}
-    check_file_format = ['png', 'jpg']
     for file_name in os.listdir(folder_path):
         if file_name.split('.')[-1] in check_file_format and os.path.isfile(folder_path+file_name):
             check_image(folder_path, file_name, hash_dict)
