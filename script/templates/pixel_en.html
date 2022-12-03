@@ -220,6 +220,9 @@
                     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
                 </script>
                 <p>Just a button</p>
+                <a id="clear_data" class="btn btn-dark" aria-label="Clean local cache and twitter access" data-balloon-pos="up" data-balloon-length="medium">
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Clean Cache
+                </a>
             </div>
         </div>
         </div>
@@ -366,8 +369,13 @@
         document.getElementsByName("language")[0].value = 'en';
         localStorage.setItem('language', 'english');
     }
+    function clear_localstorage(){
+        localStorage.clear();
+        location.reload();
+    }
     function init(){        
         document.body.addEventListener('click',set_language, false);
+        document.getElementById('clear_data').addEventListener('click',clear_localstorage, false);
         window.addEventListener('load', load_language, false);
         window.addEventListener('load', set_last_image_name, false);
     }
