@@ -359,7 +359,6 @@ You can click pic to watch vid.
 - [ ] kuwahara filter(Oil painting style)
 - [ ] Dark mode
 - [ ] Add Download button
-- [ ] Add twitter api to auto post
 - [ ] Need new dither method(more fast more efficien and more perfect)
 - [ ] Loading GIF
 - [ ] Image Matting
