@@ -350,6 +350,8 @@ You can click pic to watch vid.
  * 現在支持 webp 檔案
  ## 版本1.9.3
  * 新增圖庫頁面，定期將 #PixelArtFilterWeb 的貼文加入其中
+ ## 版本1.9.4
+ * 檔案上限增加到 4MB！
 
 </details>
 
