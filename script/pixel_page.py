@@ -34,7 +34,7 @@ static_path = 'static/'
 
 # file setting
 # file max size how many MB
-max_size_num = 2
+max_size_num = 4
 # max image length
 max_size_length = 2048
 
