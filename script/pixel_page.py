@@ -1,6 +1,5 @@
 # coding:utf-8
-from flask import Flask, render_template, request, redirect, url_for, session
-from datetime import timedelta
+from flask import Flask, render_template, request, redirect, url_for
 import os
 
 # random file name
@@ -41,19 +40,8 @@ max_size_length = 2048
 
 # app init
 app = Flask(__name__)
-config = {
-    'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 
-    # max file size
-    'DEBUG': False, 
-    # debug
-    'SECRET_KEY':secret_key, 
-    # secret key
-    'PERMANENT_SESSION_LIFETIME' : timedelta(days=1)
-    # session lifetime
-    }
+config = {'MAX_CONTENT_LENGTH': 1024 * 1024 * max_size_num, 'DEBUG': False, 'SECRET_KEY':secret_key}
 app.config.update(config)
-# session permanent
-session.permanent = True
 
 # for gallery
 @app.route('/gallery', methods=['GET', 'POST'])
@@ -61,20 +49,14 @@ def gallery():
     return render_template('gallery.html')
 
 # for twitter
-@app.route('/twitter')
+@app.route('/twitter', methods=['GET', 'POST'])
 def twitter():
     auth = tweepy.OAuthHandler(api_key, api_secret)
-    if ('user_key' in session) and ('user_secret_key' in session):
-        user_key = session['user_key']
-        user_secret_key = session['user_secret_key']
-    else:
+    try:
+        user_key = request.form['user_key']
+        user_secret_key = request.form['user_secret_key']
+    except:
         return redirect(auth.get_authorization_url())
-
-    # try:
-        # user_key = request.form['user_key']
-        # user_secret_key = request.form['user_secret_key']
-    # except:
-    #     return redirect(auth.get_authorization_url())
 
     orginal_image = request.form['original_img_src']
     result_image = request.form['result_img_src']
@@ -97,12 +79,10 @@ def callback():
     auth.get_access_token(oauth_verifier)
     user_token = auth.access_token
     user_secret_token = auth.access_token_secret
-    session['user_key']=user_token
-    session['user_secret_key']=user_secret_token
     # user_tokens = f"access-token={auth.access_token}<br>access-token-secret={auth.access_token_secret}"
     # return user_tokens
-    return twitter()
-    # return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
+
+    return render_template(pixel_html_path, user_key = user_token, user_secret_key=user_secret_token)
 
     # this area is for debugging and testing twitter api
 
@@ -258,22 +238,12 @@ def post():
         qrcode_content = request.values['qr_code_content']
 
     # twitter key
-    # try:
-    #     user_key = request.form['user_key2']
-    # except:
-    #     user_key = None
-    # try:
-    #     user_secret_key = request.form['user_secret_key2']
-    # except:
-    #     user_secret_key = None
-    
-    # twitter key
     try:
-        user_key = session['user_key2']
+        user_key = request.form['user_key2']
     except:
         user_key = None
     try:
-        user_secret_key = session['user_secret_key2']
+        user_secret_key = request.form['user_secret_key2']
     except:
         user_secret_key = None
 
