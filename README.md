@@ -349,6 +349,8 @@ You can click pic to watch vid.
  * Now support webp file
  ## ver1.9.3
  * Add gallery page. It will collect #PixelArtFilterWeb post from twitter and add into it.
+ ## ver1.9.4
+ * Max size is 4MB now!
  
 </details>
 
