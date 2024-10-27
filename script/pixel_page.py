@@ -8,6 +8,7 @@ from PIL import Image
 from pixel_process.settings import *
 from pixel_process.pixel_converter import *
 from pixel_process.qrcode_process import qr_code_process
+import json
 
 app = Flask(__name__)
 app.config.update({
@@ -26,7 +27,7 @@ max_size_num = 100  # Max upload file size in MB
 
 # HTML 路徑生成
 def get_pixel_html_name():
-    return f"{pixel_html_pre_path}_{html_lang}{pixel_html_pro_path}"
+    return f"{pixel_html_pre_path}_all{pixel_html_pro_path}"
 
 # 圖片檔名生成
 def generate_file_name(extension=""):
@@ -39,12 +40,12 @@ def clamp_value(value, min_num, max_num):
 # 路由：畫廊頁面
 @app.route('/gallery', methods=['GET', 'POST'])
 def gallery():
-    return render_template('gallery.html')
+    return render_template('gallery.html', lang = lang_json)
 
 # 路由：首頁 (GET)
 @app.route('/', methods=['GET'])
 def index():
-    return render_template(get_pixel_html_name(), language=html_lang)
+    return render_template(get_pixel_html_name(), language=html_lang, lang = lang_json)
 
 # 路由：首頁 (POST)
 @app.route('/', methods=['POST'])
@@ -57,7 +58,7 @@ def post():
     last_image_name = request.values.get('last_image')
     
     if not img and not last_image_name:
-        return render_template(get_pixel_html_name(), error="沒有選擇圖片" if html_lang == 'tch' else "No image selected")
+        return render_template(get_pixel_html_name(), error="沒有選擇圖片" if html_lang == 'tch' else "No image selected", lang = lang_json)
 
     img_file_name = img.filename if img else last_image_name
     img_path = os.path.join(static_path, 'img', generate_file_name(os.path.splitext(img_file_name)[-1]))
@@ -66,7 +67,7 @@ def post():
     # 檢查支持的文件格式
     file_format = img_file_name.rsplit('.', 1)[-1].lower()
     if file_format not in SUPPORTED_FORMATS:
-        return render_template(get_pixel_html_name(), error="不支持這個格式。" if html_lang == 'tch' else "Unsupported format")
+        return render_template(get_pixel_html_name(), error="不支持這個格式。" if html_lang == 'tch' else "Unsupported format", lang = lang_json)
 
     # 參數處理
     try:
@@ -81,7 +82,7 @@ def post():
         qrcode = bool(int(request.form.get('qr_code', 0)))
         qrcode_content = request.values.get('qr_code_content') if qrcode else ""
     except ValueError:
-        return render_template(get_pixel_html_name(), error="無效的輸入參數")
+        return render_template(get_pixel_html_name(), error="無效的輸入參數", lang = lang_json)
 
     # 儲存圖片
     if img:
@@ -101,7 +102,7 @@ def post():
     img_res, colors = convert(img_path, command_dict)
     
     if file_format in ['mp4', 'avi']:
-        return render_template(get_pixel_html_name(), org_img=img_path, vid_result=result_path, colors=colors)
+        return render_template(get_pixel_html_name(), org_img=img_path, vid_result=result_path, colors=colors, lang = lang_json)
     else:
         # 保存結果圖片
         cv2.imwrite(result_path, img_res)
@@ -110,20 +111,39 @@ def post():
         if qrcode:
             result_path = qr_code_process(result_path, qrcode_content)
 
-        return render_template(get_pixel_html_name(), org_img=img_path, result=result_path, colors=colors)
+        return render_template(get_pixel_html_name(), org_img=img_path, result=result_path, colors=colors, lang = lang_json)
+
+def load_lang_json(json_filepath):
+    """
+    讀取 JSON 文件並返回字典形式的中文翻譯內容。
+    :param json_filepath: str, JSON 文件路徑
+    :return: dict, 中文字典
+    """
+    try:
+        with open(json_filepath, 'r', encoding='utf-8') as f:
+            lang_json = json.load(f)
+            print(f"已成功讀取 {json_filepath} 文件")
+            return lang_json
+    except FileNotFoundError:
+        print(f"錯誤：找不到文件 {json_filepath}")
+        return {}
+    except json.JSONDecodeError:
+        print(f"錯誤：文件 {json_filepath} 不是有效的 JSON 格式")
+        return {}
 
 # 錯誤處理: 413 文件過大
 @app.errorhandler(413)
 def error_file_size(e):
-    error_msg = f"文件太大。最大上傳大小為 {max_size_num}MB。"
+    error_msg = f"文件太大。最大上傳大小為 {max_size_num} MB。"
     if html_lang == 'tch':
-        error_msg += f" 如果想要編輯大於 {max_size_num}MB 的檔案，請參考本地版：https://github.com/JingShing-Tools/Pixel-Art-transform-in-python"
+        error_msg += f" 如果想要編輯大於 {max_size_num} MB 的檔案，請參考本地版：https://github.com/JingShing-Tools/Pixel-Art-transform-in-python"
     return render_template(get_pixel_html_name(), error=error_msg), 413
 
 # 錯誤處理: 404 未找到
 @app.errorhandler(404)
 def not_found(e):
-    return render_template(get_pixel_html_name(), error='未找到頁面'), 404
+    return render_template(get_pixel_html_name(), error='未找到頁面', lang = lang_json), 404
 
 if __name__ == '__main__':
+    lang_json = load_lang_json("chinese_strings.json")
     app.run(host='0.0.0.0', port=5000)
