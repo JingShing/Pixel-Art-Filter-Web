@@ -14,11 +14,6 @@
     <meta property="og:title" content="像素濾鏡工具">
     <meta property="og:description" content="一個線上的像素濾鏡工具">
     <meta property="og:image" content="static/sample/preview.png"/>
-
-    <!-- twitter card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@shing_jing" />
-    <meta name="twitter:creator" content="@shing_jing" />
     
     <title>像素濾鏡工具</title>
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -48,11 +43,8 @@
         <div class="collapse navbar-collapse" id="nav-right">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" data-toggle="modal" data-target="#info">更多資訊</a></li>
-                <li><a href="https://twitter.com/shing_jing" target="_blank">Twitter</a></li>
                 <li><a href="https://github.com/JingShing/Pixel-Art-Filter-Web" target="_blank">GitHub</a></li>
                 <li><a href="https://jingshing.com/" target="_blank">SITE</a></li>
-                <li><a href="{{url_for('english')}}">English</a></li>
-                <li><a id="other_lang"><span id="other_lang_s">Other Language</span><div id='google_translate_element' hidden></div></a></li>
                 <li><a href="{{url_for('gallery')}}">Gallery</a></li>
             </ul>
         </div>
@@ -83,8 +75,6 @@
                     <li>支持透明PNG<br>
                     <li>如果勾選“導出為透明PNG”，RGBA圖像將導出為透明PNG</li>
                     <li>然而，此時alpha通道被擴大到點的大小，半透明被忽略</li>
-                    <li>如果您勾選“只有 1px 對 Twitter 透明”，只有左上角的像素會被導出為具有透明度的透明 PNG<br>
-                    當您想避免在witter被強制壓縮為 jpeg 時使用此選項</li>
                     <li>處理後的圖像將在保留一定時間後刪除。在SNS等上粘貼時，建議在本地保存一次。</li>
                 </ul>
                 <h4>使用原理</h4>
@@ -200,9 +190,6 @@
                         <input id="alpha" name="alpha" type="checkbox" value="1" checked><label for="alpha" aria-label="可以保留PNG圖片的透明部分" data-balloon-pos="up" data-balloon-length="medium">導出為透明PNG</label>
                     </div>
                     <div class="checkbox">
-                        <input id="to_tw" name="to_tw" type="checkbox" value="1" checked><label for="to_tw" aria-label="可以防止Twitter壓縮圖片變成JPG格式" data-balloon-pos="up" data-balloon-length="medium">角落1px透明(防止Twitter壓縮jpg)</label>
-                    </div>
-                    <div class="checkbox">
                         <input id="qr_code" name="qr_code" type="checkbox" value="1"><label for="qr_code" aria-label="可以增加訊息到圖片中，轉換成 QR code" data-balloon-pos="up" data-balloon-length="medium">增加 QR code到圖片</label>
                     </div>
                     <label id="qr_code_content_hint" aria-label="可以增加訊息到圖片中，轉換成 QR code(目前支持英文訊息和網址)" data-balloon-pos="up" data-balloon-length="medium" hidden>QR code 內容：</label><input id="qr_code_content" name="qr_code_content" type="text" hidden>
@@ -212,18 +199,6 @@
                     <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 像素轉換按鈕
                 </button>
             </form>
-            <div class="add-margin-top">
-                <a href="https://twitter.com/share" class="twitter-share-button"
-                   data-url="https://pixel.jingshing.com/" data-text="像素風濾鏡工具" data-size="large"
-                   data-hashtags="像素風濾鏡工具" data-lang="en" aria-label="啾啾啾" data-balloon-pos="up">Tweet</a>
-                <script>
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                </script>
-                <p>只是一個按鈕</p>
-                <a id="clear_data" class="btn btn-dark" aria-label="清除本地的配置資料和推特的存取" data-balloon-pos="up" data-balloon-length="medium">
-                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 清除本地緩存
-                </a>
-            </div>
         </div>
         </div>
         {% if result %}
@@ -251,26 +226,6 @@
                     <img class="img-responsive" src="{{ org_img }}">
                 </div>
             </div>
-            <form action="./twitter" method="post" class="add-margin-top">
-                {% if user_key %}
-                <div class="form-group col-xs-12">
-                    <textarea class="form-control" name="tweet_content" id="tweet_content" placeholder="這裡的字將附於推特的內文"></textarea>
-                </div>
-                <div class="form-group col-xs-12">
-                    <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
-                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 分享結果到推特
-                    </button>
-                </div>
-                <input type="hidden" id = "user_key" name="user_key" value="{{ user_key }}">
-                <input type="hidden" id = "user_secret_key" name="user_secret_key" value="{{ user_secret_key }}">
-                {% else %}
-                <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
-                    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 可以按此登陸推特轉發圖片
-                </button>
-                {% endif %}
-                <input type="hidden" id = "result_img_src" name="result_img_src" value="{{ result }}">
-                <input type="hidden" id = "original_img_src" name="original_img_src" value="{{ org_img }}">
-            </form>
         </div>
         {% elif vid_result %}
         <div class="col-md-8 add-margin-top">
@@ -297,97 +252,16 @@
                     <video src="{{ org_img }}" controls="controls"></video>
                 </div>
             </div>
-            <form action="./twitter" method="post" class="add-margin-top">
-                {% if user_key %}
-                <div class="form-group col-xs-12">
-                    <textarea class="form-control" name="tweet_content" id="tweet_content" placeholder="這裡的字將附於推特的內文"></textarea>
-                </div>
-                <div class="form-group col-xs-12">
-                    <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
-                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 分享結果到推特
-                    </button>
-                </div>
-                <input type="hidden" id = "user_key" name="user_key" value="{{ user_key }}">
-                <input type="hidden" id = "user_secret_key" name="user_secret_key" value="{{ user_secret_key }}">
-                {% else %}
-                <button type="submit" id="twitter_submit" class="btn btn-dark btn-block">
-                    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 可以按此登陸推特轉發圖片
-                </button>
-                {% endif %}
-                <input type="hidden" id = "result_img_src" name="result_img_src" value="{{ vid_result }}">
-                <input type="hidden" id = "original_img_src" name="original_img_src" value="{{ org_img }}">
-            </form>
-        </div>
-        {% else %}
-        <div class="col-md-6">
-            <a class="twitter-timeline"
-                href="https://twitter.com/search?q="
-                data-widget-id="865822650572054529" data-chrome="nofooter noborders" target="_blank">#像素風濾鏡工具</a>
-            <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            </script>
-            <br>
-            <a href="https://youtu.be/cJNWTVEHWV8" data-chrome="nofooter noborders" target="_blank">#可以點擊這裡看介紹影片</a>
-            <br>
-            <a href="https://github.com/JingShing-Tools/Pixel-Art-transform-in-python" data-chrome="nofooter noborders" target="_blank">#如果不想有大小限制，可以試試本地版：像素風濾鏡工具軟體</a>
-        </div>
-        {% endif %}
-        {% if error %}
-        <div class="modal fade in" id="alert" tabindex="-1">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            {{ error }}
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         {% endif %}
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-{% if error %}
-<script>
-    $(document).ready(function (){
-        $('#alert').modal();
-    });
-</script>
-{% endif %}
-<script>// script for language
-    function load_language(){
-        if(location.pathname.length==1){
-            if(localStorage.getItem('language')!='traditional_chinese'){
-                window.location.assign("{{url_for('english')}}");
-            }
-        }
-    }
-    function set_language(){
-        load_language();
-        document.getElementsByName("language")[0].value = 'tch';
-        localStorage.setItem('language', 'traditional_chinese');
-    }
-    function clear_localstorage(){
-        localStorage.clear();
-        location.reload();
-    }
-    function init(){
-        document.body.addEventListener('click',set_language, false);
-        document.getElementById('clear_data').addEventListener('click',clear_localstorage, false);
-        load_language();
-        set_last_image_name();
-    }
-    window.addEventListener('load', init, false);
-</script>
 <script src="static/js/file_load_helper_tchinese.js"></script>
 <script src="static/js/pixel_set_4.js"></script>
 <!-- QR code -->
 <script src="static/js/qr_code_enable.js"></script>
 <!-- google translate -->
-<script type="text/javascript" src="static\js\google_translate_element.js"></script>
-<script type="text/javascript" src="static\js\google_translate_tch.js"></script>
-
 </body>
 </html>
